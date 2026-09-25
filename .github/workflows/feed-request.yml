@@ -107,7 +107,7 @@ jobs:
           Merging adds it to the next generation run (every 30 min).
           BODY
           if [ -z "$(gh pr list --head "$branch" --json number --jq '.[0].number')" ]; then
-            gh pr create --title "Add feed: $name ($slug)" --body-file /tmp/pr-body.md
+            gh pr create --base main --head "$branch" --title "Add feed: $name ($slug)" --body-file /tmp/pr-body.md
           else
             echo "PR already exists for $branch"
           fi
