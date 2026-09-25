@@ -91,7 +91,7 @@ jobs:
           git checkout -b "$branch"
           git add sites.json
           git commit -m "Add $slug (feed request #$ISSUE_NUMBER)"
-          git push -u origin "$branch"
+          git push -u origin "$branch" --force-with-lease
           cat > /tmp/pr-body.md <<BODY
           Feed request from #$ISSUE_NUMBER.
 
@@ -102,7 +102,11 @@ jobs:
 
           Merging adds it to the next generation run (every 30 min).
           BODY
-          gh pr create --title "Add feed: $name ($slug)" --body-file /tmp/pr-body.md
+          if [ -z "$(gh pr list --head "$branch" --json number --jq '.[0].number')" ]; then
+            gh pr create --title "Add feed: $name ($slug)" --body-file /tmp/pr-body.md
+          else
+            echo "PR already exists for $branch"
+          fi
           gh issue comment "$ISSUE_NUMBER" --body "נמצאו $items פריטים - נפתח PR להוספת הפיד. אחרי המיזוג הפיד יופיע בעמוד הסטטוס תוך ~30 דקות. / Auto-source found $items items - a PR is open; after merge the feed goes live within ~30 minutes."
       - name: Comment when auto-source cannot build a feed
         if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items == '0'
