@@ -1,9 +1,12 @@
-"""Shared helpers: strip republication content from RSS 2.0 feeds and validate structure.
+"""Shared helpers: normalize scraped feeds into clean RSS 2.0 and validate structure.
 
-Policy: generated feeds carry title + link only (plus guid/pubDate). Article
-bodies (<description>, <content:encoded>) are removed so the feeds never
-republish site content.
+Policy: generated feeds carry title + link + a short plain-text teaser (capped)
++ an image enclosure when the source listing exposes one. Full article bodies
+(<content:encoded>, long HTML descriptions) are never republished: descriptions
+are converted to plain text and truncated to DESCRIPTION_MAX chars.
 """
+import html
+import json
 import re
 from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
@@ -13,12 +16,16 @@ ET.register_namespace('content', CONTENT_NS)
 ET.register_namespace('atom', 'http://www.w3.org/2005/Atom')
 ET.register_namespace('dc', 'http://purl.org/dc/elements/1.1/')
 
-STRIP_LOCALNAMES = {'description', 'encoded', 'summary'}
-
 DC_NS = 'http://purl.org/dc/elements/1.1/'
 ATOM_NS = 'http://www.w3.org/2005/Atom'
 
+DESCRIPTION_MAX = 500
+BODY_LOCALNAMES = {'encoded'}  # full article bodies: always stripped
+
 SLUG_RE = re.compile(r'^[a-z0-9][a-z0-9-]*$')
+TAG_RE = re.compile(r'<[^>]+>')
+IMG_TYPES = {'.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png',
+             '.gif': 'image/gif', '.webp': 'image/webp'}
 
 
 def _local(tag):
@@ -30,24 +37,110 @@ def _rfc822(dt):
     return format_datetime(dt, usegmt=True)
 
 
-def _iso_to_rfc822(text):
-    """Best-effort ISO-8601 (dc:date) to RFC-822 (pubDate); None on failure."""
+def _iso_to_dt(text):
+    """Best-effort ISO-8601 to aware datetime; None on failure."""
     try:
         dt = datetime.fromisoformat(text.strip().replace('Z', '+00:00'))
     except (ValueError, AttributeError):
         return None
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
-    return _rfc822(dt.astimezone(timezone.utc))
+    return dt.astimezone(timezone.utc)
+
+
+def _iso_to_rfc822(text):
+    dt = _iso_to_dt(text or '')
+    return _rfc822(dt) if dt else None
+
+
+def html_to_teaser(text, limit=DESCRIPTION_MAX):
+    """Strip HTML tags/entities, collapse whitespace, cap length with ellipsis."""
+    if not text:
+        return ''
+    plain = html.unescape(TAG_RE.sub(' ', text))
+    plain = re.sub(r'\s+', ' ', plain).strip()
+    if len(plain) > limit:
+        plain = plain[:limit].rsplit(' ', 1)[0].rstrip() + '…'
+    return plain
+
+
+def _image_type(url):
+    path = url.split('?', 1)[0].lower()
+    for ext, mime in IMG_TYPES.items():
+        if path.endswith(ext):
+            return mime
+    return 'image/jpeg'
+
+
+def _add_enclosure(item_el, image_url):
+    if not image_url or not re.match(r'https?://', image_url):
+        return
+    enc = ET.SubElement(item_el, 'enclosure')
+    enc.set('url', image_url)
+    enc.set('type', _image_type(image_url))
+    enc.set('length', '0')
+
+
+def jsonfeed_to_rss(payload, site_name=None, site_url=None, lang=None, feed_url=None, now=None):
+    """Build a normalized RSS 2.0 feed from `html2rss scrape --format jsonfeed`
+    stdout (may have log lines before the JSON). Returns (xml_bytes, item_count).
+    Raises on unparseable input or zero items."""
+    if now is None:
+        now = datetime.now(timezone.utc)
+    start = payload.find(b'{') if isinstance(payload, bytes) else payload.find('{')
+    if start < 0:
+        raise ValueError('no JSON document in payload')
+    data = json.loads(payload[start:])
+    items = data.get('items') or []
+    if not items:
+        raise ValueError('jsonfeed has no items')
+
+    rss = ET.Element('rss', version='2.0')
+    channel = ET.SubElement(rss, 'channel')
+    ET.SubElement(channel, 'title').text = (data.get('title') or site_name or 'feed').strip()
+    ET.SubElement(channel, 'link').text = data.get('home_page_url') or site_url or ''
+    if site_url and not data.get('home_page_url'):
+        pass
+    desc = (data.get('description') or '').strip()
+    ET.SubElement(channel, 'description').text = desc or (data.get('title') or site_name or '')
+    if lang:
+        ET.SubElement(channel, 'language').text = lang
+    ET.SubElement(channel, 'pubDate').text = _rfc822(now)
+    if feed_url:
+        link = ET.SubElement(channel, f'{{{ATOM_NS}}}link')
+        link.set('href', feed_url)
+        link.set('rel', 'self')
+        link.set('type', 'application/rss+xml')
+
+    for it in items[:25]:
+        title = (it.get('title') or '').strip()
+        url = (it.get('url') or it.get('external_url') or '').strip()
+        if not title or not url:
+            continue
+        el = ET.SubElement(channel, 'item')
+        ET.SubElement(el, 'title').text = title
+        ET.SubElement(el, 'link').text = url
+        teaser = html_to_teaser(it.get('content_text') or it.get('content_html') or it.get('summary') or '')
+        if teaser:
+            ET.SubElement(el, 'description').text = teaser
+        pub = _iso_to_rfc822(it.get('date_published') or '')
+        ET.SubElement(el, 'pubDate').text = pub or _rfc822(now)
+        ET.SubElement(el, 'guid').text = (it.get('id') or url).strip()
+        _add_enclosure(el, it.get('image') or it.get('banner_image'))
+
+    n_items = len(channel.findall('item'))
+    if n_items == 0:
+        raise ValueError('no usable items (title+url) in jsonfeed')
+    return ET.tostring(rss, encoding='UTF-8', xml_declaration=True), n_items
 
 
 def strip_item_content(xml_bytes, feed_url=None, now=None):
-    """Remove <description> / <content:encoded> from every item and normalize
-    the channel for strict readers:
+    """Normalize an RSS 2.0 feed from `html2rss scrape` (fallback path):
 
+    - full bodies (<content:encoded>) are removed; <description> is kept as a
+      plain-text teaser capped at DESCRIPTION_MAX chars
     - channel keeps exactly one pubDate (dc:date is folded in or dropped)
-    - every channel element sits before the first <item> (html2rss appends
-      dc:date after the items, which strict parsers reject as misplaced)
+    - every channel element sits before the first <item>
     - an <atom:link rel="self"> is added when feed_url is given
     - items without any date get pubDate = generation time
 
@@ -61,8 +154,15 @@ def strip_item_content(xml_bytes, feed_url=None, now=None):
     items = list(root.iter('item'))
     for item in items:
         for child in list(item):
-            if _local(child.tag) in STRIP_LOCALNAMES:
+            local = _local(child.tag)
+            if local in BODY_LOCALNAMES:
                 item.remove(child)
+            elif local == 'description':
+                item.remove(child)
+                teaser = html_to_teaser(child.text or '')
+                if teaser:
+                    d = ET.SubElement(item, 'description')
+                    d.text = teaser
         has_pubdate = item.find('pubDate') is not None
         dc = item.find(f'{{{DC_NS}}}date')
         if dc is not None:
@@ -104,7 +204,7 @@ def strip_item_content(xml_bytes, feed_url=None, now=None):
 
 
 def validate_feed_bytes(xml_bytes):
-    """Return a list of problems; empty list means a valid title+link RSS feed."""
+    """Return a list of problems; empty list means a valid RSS feed."""
     problems = []
     try:
         root = ET.fromstring(xml_bytes)
@@ -131,8 +231,15 @@ def validate_feed_bytes(xml_bytes):
             problems.append(f'item {i}: missing link')
         elif not re.match(r'https?://', link):
             problems.append(f'item {i}: link is not http(s): {link[:60]!r}')
+        if item.find('pubDate') is None:
+            problems.append(f'item {i}: missing pubDate')
+        for enc in item.findall('enclosure'):
+            if not re.match(r'https?://', enc.get('url') or ''):
+                problems.append(f'item {i}: enclosure url is not http(s)')
         for child in list(item):
             local = child.tag.rsplit('}', 1)[-1]
-            if local in STRIP_LOCALNAMES:
-                problems.append(f'item {i}: still contains <{local}> (title+link policy)')
+            if local in BODY_LOCALNAMES:
+                problems.append(f'item {i}: still contains <{local}> (no full-body policy)')
+            if local == 'description' and len(child.text or '') > DESCRIPTION_MAX + 10:
+                problems.append(f'item {i}: description over {DESCRIPTION_MAX} chars')
     return problems

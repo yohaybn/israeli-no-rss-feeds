@@ -6,7 +6,7 @@
 
 1. `sites.json` - רשימת האתרים (URL אחד לכל אתר, בלי קונפיגורציה נוספת).
 2. GitHub Actions רץ כל 30 דקות ומפעיל את [html2rss](https://github.com/html2rss/html2rss) (Ruby, קוד פתוח) במצב חילוץ אוטומטי (`auto-source`) על כל אתר: הוא מחפש קודם פיד קיים נסתר, אחר כך נתונים מובנים (JSON-LD, microformats, JSON פנימי של האתר), ורק בסוף ניתוח HTML היוריסטי.
-3. התוצאה מנוקה ל**כותרת + קישור בלבד** (ראו "חוקיות" למטה) ונשמרת ב-branch `gh-pages`.
+3. התוצאה מנוקה ל**כותרת + קישור + תקציר קצר (עד 500 תווים) + תמונה כשזמינה** (ראו "חוקיות" למטה) ונשמרת ב-branch `gh-pages`. תאריך הפרסום האמיתי נשלף כשהאתר חושף אותו בעמוד הרשימה; אחרת מוצג זמן הסריקה.
 4. הפידים מוגשים מ-GitHub Pages:
 
 ```
@@ -40,7 +40,7 @@ https://raw.githubusercontent.com/yohaybn/israeli-no-rss-feeds/gh-pages/feeds/<s
 
 ## חוקיות ונימוס ברשת
 
-- **כותרת + קישור בלבד.** הפידים לא מעתיקים תוכן כתבות (אין `description` ואין `content:encoded`) - רק מצביעים לכתבה באתר המקור, בדומה לאגרגטורי חדשות. הבדיקה נאכפת ב-CI.
+- **בלי שכפול תוכן.** הפידים מצביעים לכתבה באתר המקור ומראים רק תקציר קצר (טקסט פשוט, עד 500 תווים) ותמונה ממוזערת מהרשימה, בדומה לאגרגטורי חדשות ולתצוגת קישור. גוף הכתבה המלא (`content:encoded`, תיאורים ארוכים) נחסם ונאכף ב-CI.
 - **robots.txt נכבד.** אתר שחוסם את הדף ב-robots.txt מדולג אוטומטית.
 - **תדירות מתונה.** בקשה אחת לאתר כל 30 דקות, ברצף (לא במקביל), עם השהיה בין אתרים.
 - דפים ציבוריים בלבד, בלי עקיפת הגנות או התחברות.
@@ -64,10 +64,10 @@ MIT. תודה לפרויקט [html2rss](https://github.com/html2rss/html2rss) ש
 
 RSS feeds for leading Israeli sites that don't have one - without a per-site scraper.
 
-**How:** a single config list (`sites.json`) + a GitHub Actions job (every 30 min) that runs the [html2rss](https://github.com/html2rss/html2rss) gem in auto-source mode over the list, strips each feed to **title + link only**, and publishes the result to the `gh-pages` branch, served by GitHub Pages at `https://yohaybn.github.io/israeli-no-rss-feeds/feeds/<slug>.xml` (raw-URL fallback available). Live status page and machine-readable `status.json` at the same URL.
+**How:** a single config list (`sites.json`) + a GitHub Actions job (every 30 min) that runs the [html2rss](https://github.com/html2rss/html2rss) gem in auto-source mode over the list, normalizes each feed to **title + link + a short plain-text teaser (≤500 chars) + an image enclosure when the listing exposes one** (real publish dates where the listing exposes them, scrape time otherwise), and publishes the result to the `gh-pages` branch, served by GitHub Pages at `https://yohaybn.github.io/israeli-no-rss-feeds/feeds/<slug>.xml` (raw-URL fallback available). Live status page and machine-readable `status.json` at the same URL.
 
 **Add a site:** PR one line into `sites.json` (see format above); CI validates the schema and the next run generates the feed. If a site actually has a hidden native feed, html2rss discovers and uses it automatically.
 
-**Legality & politeness:** title+link only (no article content republication, enforced in CI), robots.txt respected, one request per site every 30 minutes, sequential with delays, public pages only. Not legal advice; sites asking to be removed will be removed.
+**Legality & politeness:** no article-content republication (full bodies blocked, enforced in CI; only the site's own short listing teaser and thumbnail), robots.txt respected, one request per site every 30 minutes, sequential with delays, public pages only. Not legal advice; sites asking to be removed will be removed.
 
 MIT license.

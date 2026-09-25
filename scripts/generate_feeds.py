@@ -21,7 +21,7 @@ import urllib.robotparser
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from feedlib import strip_item_content, validate_feed_bytes  # noqa: E402
+from feedlib import jsonfeed_to_rss, strip_item_content, validate_feed_bytes  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.environ.get('OUT_DIR', os.path.join(ROOT, 'out'))
@@ -58,27 +58,49 @@ def extract_xml(payload):
     raise ValueError('no XML document in html2rss output: %r' % payload[:150])
 
 
+def _scrape(url, extra_args):
+    return subprocess.run(
+        ['html2rss', 'scrape', url, '--limit', '25'] + extra_args,
+        capture_output=True, timeout=SCRAPE_TIMEOUT)
+
+
 def generate_site(site, feed_url=None):
-    """Return (result_dict, clean_feed_bytes_or_None)."""
+    """Return (result_dict, clean_feed_bytes_or_None).
+
+    Primary path: JSON Feed mode, rebuilt into RSS with real dates, plain-text
+    teasers and image enclosures. Fallback: RSS mode normalized the old way.
+    """
     url = site['url']
     allowed, reason = robots_allows(url)
     if not allowed:
         return {'status': 'skipped', 'reason': reason}, None
     try:
-        proc = subprocess.run(
-            ['html2rss', 'scrape', url, '--limit', '25'],
-            capture_output=True, timeout=SCRAPE_TIMEOUT)
+        proc = _scrape(url, ['--format', 'jsonfeed'])
     except subprocess.TimeoutExpired:
         return {'status': 'failed', 'reason': f'html2rss timed out ({SCRAPE_TIMEOUT}s)'}, None
-    if proc.returncode != 0 or not proc.stdout.strip():
-        err = proc.stderr.decode('utf-8', 'ignore').strip().splitlines()
-        tail = err[-1][:300] if err else f'exit {proc.returncode}, empty output'
-        return {'status': 'failed', 'reason': tail}, None
-    try:
-        cleaned, n_items = strip_item_content(extract_xml(proc.stdout), feed_url=feed_url)
-    except Exception as e:
-        head = proc.stdout[:150].decode('utf-8', 'ignore').strip()
-        return {'status': 'failed', 'reason': f'feed post-processing failed: {e} | stdout head: {head}'}, None
+    cleaned = n_items = None
+    if proc.returncode == 0 and proc.stdout.strip():
+        try:
+            cleaned, n_items = jsonfeed_to_rss(
+                proc.stdout, site_name=site.get('name'), site_url=url,
+                lang=site.get('lang'), feed_url=feed_url)
+        except Exception:
+            cleaned = None
+    if cleaned is None:
+        # fallback: RSS mode
+        try:
+            proc = _scrape(url, [])
+        except subprocess.TimeoutExpired:
+            return {'status': 'failed', 'reason': f'html2rss timed out ({SCRAPE_TIMEOUT}s)'}, None
+        if proc.returncode != 0 or not proc.stdout.strip():
+            err = proc.stderr.decode('utf-8', 'ignore').strip().splitlines()
+            tail = err[-1][:300] if err else f'exit {proc.returncode}, empty output'
+            return {'status': 'failed', 'reason': tail}, None
+        try:
+            cleaned, n_items = strip_item_content(extract_xml(proc.stdout), feed_url=feed_url)
+        except Exception as e:
+            head = proc.stdout[:150].decode('utf-8', 'ignore').strip()
+            return {'status': 'failed', 'reason': f'feed post-processing failed: {e} | stdout head: {head}'}, None
     problems = validate_feed_bytes(cleaned)
     if problems:
         return {'status': 'failed', 'reason': 'invalid feed: ' + '; '.join(problems[:3])}, None
@@ -117,7 +139,7 @@ code {{ background: #f4f4f4; padding: 1px 4px; }}
 </head>
 <body>
 <h1>israeli-no-rss-feeds</h1>
-<p>פידי RSS (כותרת + קישור בלבד) לאתרים ישראליים מובילים שאין להם RSS משלהם.
+<p>פידי RSS (כותרת, קישור, תקציר קצר ותמונה כשזמינים) לאתרים ישראליים מובילים שאין להם RSS משלהם.
 מתחדש אוטומטית כל 30 דקות דרך GitHub Actions עם
 <a href="https://github.com/html2rss/html2rss">html2rss</a> (חילוץ אוטומטי, בלי סקרייפר פר-אתר).
 קוד המקור: <a href="https://github.com/yohaybn/israeli-no-rss-feeds">github.com/yohaybn/israeli-no-rss-feeds</a></p>
