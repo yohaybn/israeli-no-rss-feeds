@@ -1,0 +1,103 @@
+name: Feed request
+
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  issues: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  try-feed:
+    if: contains(github.event.issue.labels.*.name, 'feed-request')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+    steps:
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - run: gem install html2rss --no-document
+      - uses: actions/checkout@v4
+      - name: Extract URL and site name from the issue form
+        id: meta
+        run: |
+          # Issue-form body: values are the non-empty, non-heading lines, in field order (url, name)
+          url=$(printf '%s\n' "$ISSUE_BODY" | grep -v '^#' | grep -Eo 'https?://[^ )<]+' | head -1 || true)
+          name=$(printf '%s\n' "$ISSUE_BODY" | grep -v '^###' | grep -v '^$' | grep -v '^_' | sed -n '2p' | tr -d '\r' || true)
+          [ -n "$name" ] || name="$url"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          slug=$(printf '%s' "$url" | sed -E 's#https?://(www\.)?([^./]+).*#\2#' | tr 'A-Z' 'a-z' | sed -E 's/[^a-z0-9-]+/-/g;s/^-+|-+$//g')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "extracted: url=$url name=$name slug=$slug"
+      - name: Sanity-check extraction
+        id: check
+        run: |
+          url='${{ steps.meta.outputs.url }}'
+          slug='${{ steps.meta.outputs.slug }}'
+          if [ -z "$url" ] || ! printf '%s' "$slug" | grep -Eq '^[a-z0-9][a-z0-9-]*$'; then
+            gh issue comment "$ISSUE_NUMBER" --body "לא הצלחתי לחלץ כתובת URL תקינה מהבקשה. ודאו שהשדה הראשון מכיל קישור מלא שמתחיל ב-http(s) ונסו שוב. / Could not extract a valid URL from the request."
+            echo "usable=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if grep -q "\"$url\"" sites.json || grep -q "\"slug\": \"$slug\"" sites.json; then
+            gh issue comment "$ISSUE_NUMBER" --body "האתר הזה כבר נמצא ברשימה (sites.json) - בדקו את עמוד הסטטוס: https://yohaybn.github.io/israeli-no-rss-feeds/ / This site is already tracked."
+            echo "usable=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "usable=yes" >> "$GITHUB_OUTPUT"
+      - name: Try html2rss auto-source on the URL
+        id: probe
+        if: steps.check.outputs.usable == 'yes'
+        run: |
+          url='${{ steps.meta.outputs.url }}'
+          timeout 100 html2rss scrape "$url" --limit 5 --format jsonfeed > /tmp/probe.json 2>/tmp/probe.err || true
+          items=$(python3 -c "
+          import json,sys
+          raw=open('/tmp/probe.json','rb').read()
+          i=raw.find(b'{')
+          try: print(len(json.loads(raw[i:]).get('items',[])))
+          except Exception: print(0)
+          ")
+          echo "items=$items" >> "$GITHUB_OUTPUT"
+          echo "auto-source extracted $items items"
+      - name: Add site and open PR
+        if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items != '0'
+        run: |
+          slug='${{ steps.meta.outputs.slug }}'
+          url='${{ steps.meta.outputs.url }}'
+          name='${{ steps.meta.outputs.name }}'
+          python3 - "$slug" "$url" "$name" <<'PY'
+          import json,sys
+          slug,url,name=sys.argv[1:4]
+          d=json.load(open('sites.json'))
+          d['sites'].append({"slug":slug,"name":name,"url":url,"lang":"he","category":"news"})
+          json.dump(d,open('sites.json','w'),ensure_ascii=False,indent=2)
+          open('sites.json','a').write('\n')
+          PY
+          branch="feed-request/${slug}-${ISSUE_NUMBER}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -b "$branch"
+          git add sites.json
+          git commit -m "Add $slug (feed request #$ISSUE_NUMBER)"
+          git push -u origin "$branch"
+          gh pr create --title "Add feed: $name ($slug)" --body "Feed request from #$ISSUE_NUMBER.
+
+          html2rss auto-source extracted ${{ steps.probe.outputs.items }} items from <$url> in JSON Feed mode.
+
+          - slug: \`$slug\`
+          - category/lang: defaults (news/he) - edit if needed
+
+          Merging adds it to the next generation run (every 30 min)."
+          gh issue comment "$ISSUE_NUMBER" --body "נמצאו ${{ steps.probe.outputs.items }} פריטים - נפתח PR להוספת הפיד. אחרי המיזוג הפיד יופיע בעמוד הסטטוס תוך ~30 דקות. / Auto-source found ${{ steps.probe.outputs.items }} items - a PR is open; after merge the feed goes live within ~30 minutes."
+      - name: Comment when auto-source cannot build a feed
+        if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items == '0'
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "החילוץ האוטומטי (html2rss auto-source) לא מצא פריטים בכתובת הזו - ייתכן שהאתר חוסם בוטים או בנוי ב-client-side rendering בלבד. אפשר לנסות הגדרת selectors ידנית ב-html2rss; הבקשה נשארת פתוחה לטיפול ידני. / Auto-source found no items at this URL (bot-blocking or client-rendered page). A hand-written selector config may still work; leaving this open for manual follow-up."

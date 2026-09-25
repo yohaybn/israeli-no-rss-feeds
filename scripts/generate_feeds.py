@@ -149,6 +149,7 @@ code {{ background: #f4f4f4; padding: 1px 4px; }}
 {''.join(rows)}
 </table>
 <p>גישה ישירה: <code>{base_url}/feeds/&lt;slug&gt;.xml</code> · סטטוס מכונה: <a href="status.json">status.json</a></p>
+<p>רוצים פיד לאתר נוסף? <a href="https://github.com/yohaybn/israeli-no-rss-feeds/issues/new?template=feed-request.yml">פתחו בקשת פיד</a> - המערכת מנסה לבנות אותו אוטומטית ופותחת PR.</p>
 </body>
 </html>
 """

@@ -1,0 +1,20 @@
+name: בקשת פיד חדש / Feed request
+description: בקשה להוסיף פיד RSS לאתר ישראלי שאין לו RSS
+title: "Feed request: "
+labels: ["feed-request"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: כתובת האתר (URL)
+      description: קישור לעמוד הראשי או לעמוד קטגוריה באתר שאין לו RSS
+      placeholder: https://example.co.il
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: שם האתר
+      placeholder: Example News
+    validations:
+      required: true

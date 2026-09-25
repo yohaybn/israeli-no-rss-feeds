@@ -21,6 +21,10 @@ https://yohaybn.github.io/israeli-no-rss-feeds/feeds/<slug>.xml
 https://raw.githubusercontent.com/yohaybn/israeli-no-rss-feeds/gh-pages/feeds/<slug>.xml
 ```
 
+## בקשת פיד חדש (שירות עצמי)
+
+רוצים פיד לאתר שלא ברשימה? [פתחו בקשת פיד](https://github.com/yohaybn/israeli-no-rss-feeds/issues/new?template=feed-request.yml) עם שם האתר וה-URL. GitHub Actions מריץ html2rss auto-source על הכתובת: אם נמצאו פריטים נפתח PR אוטומטי עם ההגדרה (אחרי מיזוג הפיד באוויר תוך ~30 דקות); אם לא - מתקבלת תגובה ב-issue שהאתר דורש הגדרה ידנית.
+
 ## האתרים ברשימה הראשונית
 
 חדשות: 0404, רשת 13, כאן 11, i24NEWS, News1, nfc, החמל, מקור ראשון, ישראל היום, זמן ישראל, חי פה, عرب 48, بانيت.
