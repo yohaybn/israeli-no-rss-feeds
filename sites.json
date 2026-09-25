@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "comment": "Leading Israeli sites with no discoverable RSS/Atom feed. html2rss auto-source discovers a native feed first, so a site that later adds RSS is served from its own feed automatically.",
+  "sites": [
+    {"slug": "0404", "name": "0404", "url": "https://www.0404.co.il", "lang": "he", "category": "news"},
+    {"slug": "reshet13", "name": "רשת 13", "url": "https://13tv.co.il", "lang": "he", "category": "news"},
+    {"slug": "kan11", "name": "כאן 11", "url": "https://www.kan.org.il", "lang": "he", "category": "news"},
+    {"slug": "i24", "name": "i24NEWS", "url": "https://www.i24news.tv/he", "lang": "he", "category": "news"},
+    {"slug": "news1", "name": "News1", "url": "https://www.news1.co.il", "lang": "he", "category": "news"},
+    {"slug": "nfc", "name": "nfc", "url": "https://www.nfc.co.il", "lang": "he", "category": "news"},
+    {"slug": "hamal", "name": "החמל", "url": "https://hamal.co.il", "lang": "he", "category": "news"},
+    {"slug": "makorrishon", "name": "מקור ראשון", "url": "https://www.makorrishon.co.il", "lang": "he", "category": "news"},
+    {"slug": "israelhayom", "name": "ישראל היום", "url": "https://www.israelhayom.co.il", "lang": "he", "category": "news"},
+    {"slug": "zman", "name": "זמן ישראל", "url": "https://www.zman.co.il", "lang": "he", "category": "news"},
+    {"slug": "haipo", "name": "חי פה - חדשות חיפה", "url": "https://haipo.co.il", "lang": "he", "category": "news"},
+    {"slug": "arab48", "name": "عرب 48", "url": "https://www.arab48.com", "lang": "ar", "category": "news"},
+    {"slug": "panet", "name": "بانيت / פאנט", "url": "https://www.panet.co.il", "lang": "ar", "category": "news"},
+    {"slug": "sport5", "name": "Sport5", "url": "https://www.sport5.co.il", "lang": "he", "category": "sports"},
+    {"slug": "basket", "name": "עמותת הכדורסל", "url": "https://basket.co.il", "lang": "he", "category": "sports"},
+    {"slug": "calcalist", "name": "כלכליסט", "url": "https://www.calcalist.co.il", "lang": "he", "category": "finance"},
+    {"slug": "bizportal", "name": "ביזפורטל", "url": "https://www.bizportal.co.il", "lang": "he", "category": "finance"},
+    {"slug": "actualic", "name": "עקטואליק", "url": "https://actualic.co.il", "lang": "he", "category": "haredi"},
+    {"slug": "bizzem", "name": "ביזם", "url": "https://bizzem.co.il", "lang": "he", "category": "haredi"},
+    {"slug": "ladaat", "name": "לעדת", "url": "https://www.ladaat.info", "lang": "he", "category": "haredi"},
+    {"slug": "shturem", "name": "שטורעם", "url": "https://www.shturem.net", "lang": "he", "category": "haredi"},
+    {"slug": "yeshiva", "name": "ישיבה", "url": "https://www.yeshiva.org.il", "lang": "he", "category": "religion"},
+    {"slug": "hidabroot", "name": "הידברות", "url": "https://www.hidabroot.co.il", "lang": "he", "category": "religion"},
+    {"slug": "passportnews", "name": "PassportNews", "url": "https://passportnews.co.il", "lang": "he", "category": "travel"},
+    {"slug": "israeldefense", "name": "Israel Defense", "url": "https://www.israeldefense.co.il", "lang": "he", "category": "defense"},
+    {"slug": "glz", "name": "גלי צה\"ל", "url": "https://glz.co.il", "lang": "he", "category": "radio"},
+    {"slug": "fm103", "name": "רדיו 103FM", "url": "https://103fm.maariv.co.il", "lang": "he", "category": "radio"}
+  ]
+}
