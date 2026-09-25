@@ -9,15 +9,19 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
+  ISSUE_BODY: ${{ github.event.issue.body }}
+  AUTHOR: ${{ github.event.issue.user.login }}
+  OWNER: yohaybn
+  MIN_ITEMS: 3
+
 jobs:
   try-feed:
     if: contains(github.event.issue.labels.*.name, 'feed-request')
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      ISSUE_NUMBER: ${{ github.event.issue.number }}
-      ISSUE_BODY: ${{ github.event.issue.body }}
     steps:
       - uses: ruby/setup-ruby@v1
         with:
@@ -36,46 +40,74 @@ jobs:
           slug=$(printf '%s' "$url" | sed -E 's#https?://(www\.)?([^./]+).*#\2#' | tr 'A-Z' 'a-z' | sed -E 's/[^a-z0-9-]+/-/g;s/^-+|-+$//g')
           echo "slug=$slug" >> "$GITHUB_OUTPUT"
           echo "extracted: url=$url name=$name slug=$slug"
-      - name: Sanity-check extraction
+      - name: Sanity-check extraction (https only, not already tracked)
         id: check
         env:
           url: ${{ steps.meta.outputs.url }}
           slug: ${{ steps.meta.outputs.slug }}
         run: |
+          usable=yes
+          reason=''
           if [ -z "$url" ] || ! printf '%s' "$slug" | grep -Eq '^[a-z0-9][a-z0-9-]*$'; then
-            gh issue comment "$ISSUE_NUMBER" --body "לא הצלחתי לחלץ כתובת URL תקינה מהבקשה. ודאו שהשדה הראשון מכיל קישור מלא שמתחיל ב-http(s) ונסו שוב. / Could not extract a valid URL from the request."
-            echo "usable=no" >> "$GITHUB_OUTPUT"
-            exit 0
+            usable=no
+            reason='לא הצלחתי לחלץ כתובת URL תקינה מהבקשה. ודאו שהשדה הראשון מכיל קישור מלא שמתחיל ב-https ונסו שוב. / Could not extract a valid URL from the request.'
+          elif ! printf '%s' "$url" | grep -Eq '^https://'; then
+            usable=no
+            reason='רק כתובות https נתמכות. / Only https URLs are supported.'
+          elif grep -q "\"$url\"" sites.json || grep -q "\"slug\": \"$slug\"" sites.json; then
+            usable=no
+            reason='האתר הזה כבר נמצא ברשימה (sites.json) - בדקו את עמוד הסטטוס: https://yohaybn.github.io/israeli-no-rss-feeds/ / This site is already tracked.'
           fi
-          if grep -q "\"$url\"" sites.json || grep -q "\"slug\": \"$slug\"" sites.json; then
-            gh issue comment "$ISSUE_NUMBER" --body "האתר הזה כבר נמצא ברשימה (sites.json) - בדקו את עמוד הסטטוס: https://yohaybn.github.io/israeli-no-rss-feeds/ / This site is already tracked."
-            echo "usable=no" >> "$GITHUB_OUTPUT"
-            exit 0
+          if [ "$usable" = no ]; then
+            gh issue comment "$ISSUE_NUMBER" --body "$reason"
           fi
-          echo "usable=yes" >> "$GITHUB_OUTPUT"
-      - name: Try html2rss auto-source on the URL
+          echo "usable=$usable" >> "$GITHUB_OUTPUT"
+      - name: Try html2rss auto-source on the URL + validation gates
         id: probe
         if: steps.check.outputs.usable == 'yes'
         env:
           url: ${{ steps.meta.outputs.url }}
         run: |
           timeout 100 html2rss scrape "$url" --limit 5 --format jsonfeed > /tmp/probe.json 2>/tmp/probe.err || true
-          items=$(python3 -c "
+          python3 - "$url" "$MIN_ITEMS" >> "$GITHUB_OUTPUT" <<'PY'
           import json,sys
+          from urllib.parse import urlparse
+          url,min_items=sys.argv[1],int(sys.argv[2])
           raw=open('/tmp/probe.json','rb').read()
           i=raw.find(b'{')
-          try: print(len(json.loads(raw[i:]).get('items',[])))
-          except Exception: print(0)
-          ")
-          echo "items=$items" >> "$GITHUB_OUTPUT"
-          echo "auto-source extracted $items items"
+          try: d=json.loads(raw[i:])
+          except Exception: d={}
+          items=d.get('items',[])
+          n=len(items)
+          IL=('co.il','org.il','ac.il','gov.il','muni.il','net.il','k12.il')
+          def reg(h):
+              p=(h or '').lower().split('.')
+              if len(p)<2: return ''
+              t2='.'.join(p[-2:])
+              return '.'.join(p[-3:]) if t2 in IL and len(p)>=3 else t2
+          site=reg(urlparse(url).hostname)
+          links=[it.get('url') or '' for it in items]
+          withurl=[l for l in links if l]
+          same=sum(1 for l in withurl if reg(urlparse(l).hostname)==site)
+          reasons=[]
+          if n<min_items: reasons.append(f'only {n} items extracted (minimum {min_items})')
+          if withurl and same/len(withurl)<0.8:
+              reasons.append(f'item links point outside {site} ({same}/{len(withurl)} match)')
+          if not withurl and n>0: reasons.append('no item links found')
+          print(f'items={n}')
+          print('gates=' + ('fail' if reasons else 'pass'))
+          print('gate_reason=' + ('; '.join(reasons) if reasons else 'ok'))
+          PY
       - name: Add site and open PR
+        id: pr
         if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items != '0'
         env:
           slug: ${{ steps.meta.outputs.slug }}
           url: ${{ steps.meta.outputs.url }}
           name: ${{ steps.meta.outputs.name }}
           items: ${{ steps.probe.outputs.items }}
+          gates: ${{ steps.probe.outputs.gates }}
+          gate_reason: ${{ steps.probe.outputs.gate_reason }}
         run: |
           python3 - "$slug" "$url" "$name" <<'PY'
           import json,sys
@@ -86,6 +118,7 @@ jobs:
           open('sites.json','a').write('\n')
           PY
           branch="feed-request/${slug}-${ISSUE_NUMBER}"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
           # GITHUB_TOKEN (a GitHub App) cannot git-push refs carrying workflow-file
           # history, so create the branch + commit via the Git Data/Contents API.
           main_sha=$(gh api repos/{owner}/{repo}/git/refs/heads/main --jq .object.sha)
@@ -97,21 +130,41 @@ jobs:
             -f sha="$file_sha" \
             -f content="$(base64 -w0 sites.json)" --jq .commit.sha
           cat > /tmp/pr-body.md <<BODY
-          Feed request from #$ISSUE_NUMBER.
+          Feed request from #$ISSUE_NUMBER (opened by @$AUTHOR).
 
           html2rss auto-source extracted $items items from <$url> in JSON Feed mode.
 
           - slug: \`$slug\`
           - category/lang: defaults (news/he) - edit if needed
+          - validation gates: $gates ($gate_reason)
 
-          Merging adds it to the next generation run (every 30 min).
+          Owner requests that pass the gates are auto-merged; anything else waits for manual review.
           BODY
           if [ -z "$(gh pr list --head "$branch" --json number --jq '.[0].number')" ]; then
             gh pr create --base main --head "$branch" --title "Add feed: $name ($slug)" --body-file /tmp/pr-body.md
           else
             echo "PR already exists for $branch"
           fi
-          gh issue comment "$ISSUE_NUMBER" --body "נמצאו $items פריטים - נפתח PR להוספת הפיד. אחרי המיזוג הפיד יופיע בעמוד הסטטוס תוך ~30 דקות. / Auto-source found $items items - a PR is open; after merge the feed goes live within ~30 minutes."
+      - name: Auto-merge when the requester is the repo owner and gates pass
+        if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items != '0' && steps.probe.outputs.gates == 'pass' && env.AUTHOR == env.OWNER
+        env:
+          branch: ${{ steps.pr.outputs.branch }}
+          items: ${{ steps.probe.outputs.items }}
+        run: |
+          gh pr merge "$branch" --merge --delete-branch
+          gh issue comment "$ISSUE_NUMBER" --body "אושר אוטומטית (בקשת בעל הריפו + בדיקות תקינות): נמצאו $items פריטים והשינוי מוזג ל-main. הפיד יופיע בעמוד הסטטוס תוך ~30 דקות. / Auto-approved (owner request, all gates passed): merged; the feed goes live within ~30 minutes."
+      - name: Owner request but gates failed - leave PR for manual review
+        if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items != '0' && steps.probe.outputs.gates == 'fail' && env.AUTHOR == env.OWNER
+        env:
+          gate_reason: ${{ steps.probe.outputs.gate_reason }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "נפתח PR אבל בדיקות האימות נכשלו ($gate_reason), לכן לא מוזג אוטומטית - ה-PR מחכה לסקירה ידנית. / A PR is open but validation gates failed ($gate_reason); left unmerged for manual review."
+      - name: Non-owner request - comment that review is pending
+        if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items != '0' && env.AUTHOR != env.OWNER
+        env:
+          items: ${{ steps.probe.outputs.items }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "נמצאו $items פריטים - נפתח PR להוספת הפיד ומחכה לאישור בעל הריפו. / Found $items items - a PR is open and awaits the repo owner's review."
       - name: Comment when auto-source cannot build a feed
         if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items == '0'
         run: |
