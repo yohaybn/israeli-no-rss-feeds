@@ -1,0 +1,266 @@
+{
+  "generated_at": "2026-09-25 10:38 UTC",
+  "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
+  "sites": [
+    {
+      "slug": "0404",
+      "name": "0404",
+      "url": "https://www.0404.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::BlockedSurfaceDetected error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL "
+    },
+    {
+      "slug": "reshet13",
+      "name": "רשת 13",
+      "url": "https://13tv.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/reshet13.xml"
+    },
+    {
+      "slug": "kan11",
+      "name": "כאן 11",
+      "url": "https://www.kan.org.il",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 24,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/kan11.xml"
+    },
+    {
+      "slug": "i24",
+      "name": "i24NEWS",
+      "url": "https://www.i24news.tv/he",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 3,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
+    },
+    {
+      "slug": "news1",
+      "name": "News1",
+      "url": "https://www.news1.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 7,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
+    },
+    {
+      "slug": "nfc",
+      "name": "nfc",
+      "url": "https://www.nfc.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTPX::Error error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request str"
+    },
+    {
+      "slug": "hamal",
+      "name": "החמל",
+      "url": "https://hamal.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
+    },
+    {
+      "slug": "makorrishon",
+      "name": "מקור ראשון",
+      "url": "https://www.makorrishon.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 4,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/makorrishon.xml"
+    },
+    {
+      "slug": "israelhayom",
+      "name": "ישראל היום",
+      "url": "https://www.israelhayom.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
+    },
+    {
+      "slug": "zman",
+      "name": "זמן ישראל",
+      "url": "https://www.zman.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::BlockedSurfaceDetected error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL "
+    },
+    {
+      "slug": "haipo",
+      "name": "חי פה - חדשות חיפה",
+      "url": "https://haipo.co.il",
+      "lang": "he",
+      "category": "news",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::BlockedSurfaceDetected error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL "
+    },
+    {
+      "slug": "arab48",
+      "name": "عرب 48",
+      "url": "https://www.arab48.com",
+      "lang": "ar",
+      "category": "news",
+      "status": "ok",
+      "items": 50,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/arab48.xml"
+    },
+    {
+      "slug": "panet",
+      "name": "بانيت / פאנט",
+      "url": "https://www.panet.co.il",
+      "lang": "ar",
+      "category": "news",
+      "status": "failed",
+      "reason": "html2rss timed out (120s)"
+    },
+    {
+      "slug": "sport5",
+      "name": "Sport5",
+      "url": "https://www.sport5.co.il",
+      "lang": "he",
+      "category": "sports",
+      "status": "ok",
+      "items": 14,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/sport5.xml"
+    },
+    {
+      "slug": "basket",
+      "name": "עמותת הכדורסל",
+      "url": "https://basket.co.il",
+      "lang": "he",
+      "category": "sports",
+      "status": "ok",
+      "items": 1,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/basket.xml"
+    },
+    {
+      "slug": "calcalist",
+      "name": "כלכליסט",
+      "url": "https://www.calcalist.co.il",
+      "lang": "he",
+      "category": "finance",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist.xml"
+    },
+    {
+      "slug": "bizportal",
+      "name": "ביזפורטל",
+      "url": "https://www.bizportal.co.il",
+      "lang": "he",
+      "category": "finance",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/bizportal.xml"
+    },
+    {
+      "slug": "actualic",
+      "name": "עקטואליק",
+      "url": "https://actualic.co.il",
+      "lang": "he",
+      "category": "haredi",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTPX::Error error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request str"
+    },
+    {
+      "slug": "bizzem",
+      "name": "ביזם",
+      "url": "https://bizzem.co.il",
+      "lang": "he",
+      "category": "haredi",
+      "status": "failed",
+      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
+    },
+    {
+      "slug": "ladaat",
+      "name": "לעדת",
+      "url": "https://www.ladaat.info",
+      "lang": "he",
+      "category": "haredi",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTPX::Error error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request str"
+    },
+    {
+      "slug": "shturem",
+      "name": "שטורעם",
+      "url": "https://www.shturem.net",
+      "lang": "he",
+      "category": "haredi",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTPX::Error error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request str"
+    },
+    {
+      "slug": "yeshiva",
+      "name": "ישיבה",
+      "url": "https://www.yeshiva.org.il",
+      "lang": "he",
+      "category": "religion",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/yeshiva.xml"
+    },
+    {
+      "slug": "hidabroot",
+      "name": "הידברות",
+      "url": "https://www.hidabroot.co.il",
+      "lang": "he",
+      "category": "religion",
+      "status": "failed",
+      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
+    },
+    {
+      "slug": "passportnews",
+      "name": "PassportNews",
+      "url": "https://passportnews.co.il",
+      "lang": "he",
+      "category": "travel",
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::BlockedSurfaceDetected error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL "
+    },
+    {
+      "slug": "israeldefense",
+      "name": "Israel Defense",
+      "url": "https://www.israeldefense.co.il",
+      "lang": "he",
+      "category": "defense",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/israeldefense.xml"
+    },
+    {
+      "slug": "glz",
+      "name": "גלי צה\"ל",
+      "url": "https://glz.co.il",
+      "lang": "he",
+      "category": "radio",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/glz.xml"
+    },
+    {
+      "slug": "fm103",
+      "name": "רדיו 103FM",
+      "url": "https://103fm.maariv.co.il",
+      "lang": "he",
+      "category": "radio",
+      "status": "ok",
+      "items": 13,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
+    }
+  ],
+  "ok_count": 15,
+  "total": 27
+}

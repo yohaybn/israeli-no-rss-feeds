@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>i24NEWS - חדשות מתפרצות מהמזרח התיכון, ישראל ומסביב לעולם</title>
+    <link>https://www.i24news.tv/he</link>
+    <description>i24NEWS מביא לכם את החדשות והסיפורים הכי גדולים מהמזרח התיכון, מישראל ומסביב לעולם</description>
+    <language>he</language>
+    <managingEditor>i24NEWS</managingEditor>
+    <pubDate>Fri, 25 Sep 2026 10:38:28 +0000</pubDate>
+    <image>
+      <url>https://cdn.i24news.tv/upload/image/1352b9caa849f9325c12157cf9dfc47bc0e3c73e.png</url>
+      <title>i24NEWS - חדשות מתפרצות מהמזרח התיכון, ישראל ומסביב לעולם</title>
+      <link>https://www.i24news.tv/he</link>
+    </image>
+    <item>
+      <title>כוחות הביטחון אטמו את ביתו של המחבל שביצע את פיגוע הירי בנווה צוף לקראת הריסתו | עדכונים שוטפים</title>
+      <link>https://www.i24news.tv/he/news/real-time-news/artc-76357203</link>
+      <category>חדשות בזמן אמת</category>
+      <category>פלילי</category>
+      <category>בארץ</category>
+      <category>מיוחד לסופ"ש</category>
+      <category>ביטחוני</category>
+      <category>אוכל</category>
+      <pubDate>Thu, 24 Sep 2026 20:24:38 +0000</pubDate>
+      <guid isPermaLink="false">121du45</guid>
+      <dc:date>2026-09-24T20:24:38+00:00</dc:date>
+    </item>
+    <item>
+      <title>חייל מילואים נעצר בחשד שהחזיק בטלפון הנייד שלו תכנים פורנוגרפיים של קטינים</title>
+      <link>https://www.i24news.tv/he/news/news/criminal/artc-efd75cbc</link>
+      <guid isPermaLink="false">bnpiwg</guid>
+    </item>
+    <item>
+      <title>קטטה בקיוסק בנתיבות: תושב העיר נעצר בחשד שדקר מוכר - מצבו קשה</title>
+      <link>https://www.i24news.tv/he/news/news/criminal/artc-fce53cec</link>
+      <guid isPermaLink="false">118s10s</guid>
+    </item>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::SemanticHtml (3))</generator>
+    <ttl>1</ttl>
+    <dc:date>2026-09-25T10:38:28.084466+00:00</dc:date>
+  </channel>
+</rss>
