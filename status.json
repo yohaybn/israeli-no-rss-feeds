@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25 12:54 UTC",
+  "generated_at": "2026-09-25 15:40 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -28,7 +28,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 22,
+      "items": 19,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/kan11.xml"
     },
     {
@@ -67,7 +67,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 25,
+      "items": 24,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
@@ -87,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus req"
+      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
     },
     {
       "slug": "zman",
@@ -219,7 +219,7 @@
       "lang": "he",
       "category": "religion",
       "status": "ok",
-      "items": 2,
+      "items": 9,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/yeshiva.xml"
     },
     {
