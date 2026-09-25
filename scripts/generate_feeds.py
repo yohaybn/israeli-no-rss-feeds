@@ -58,7 +58,7 @@ def extract_xml(payload):
     raise ValueError('no XML document in html2rss output: %r' % payload[:150])
 
 
-def generate_site(site):
+def generate_site(site, feed_url=None):
     """Return (result_dict, clean_feed_bytes_or_None)."""
     url = site['url']
     allowed, reason = robots_allows(url)
@@ -75,7 +75,7 @@ def generate_site(site):
         tail = err[-1][:300] if err else f'exit {proc.returncode}, empty output'
         return {'status': 'failed', 'reason': tail}, None
     try:
-        cleaned, n_items = strip_item_content(extract_xml(proc.stdout))
+        cleaned, n_items = strip_item_content(extract_xml(proc.stdout), feed_url=feed_url)
     except Exception as e:
         head = proc.stdout[:150].decode('utf-8', 'ignore').strip()
         return {'status': 'failed', 'reason': f'feed post-processing failed: {e} | stdout head: {head}'}, None
@@ -145,7 +145,7 @@ def main():
 
     for site in sites:
         print(f"== {site['slug']}: {site['url']}", flush=True)
-        res, xml_bytes = generate_site(site)
+        res, xml_bytes = generate_site(site, feed_url=f'{base_url}/feeds/{site["slug"]}.xml')
         entry = {'slug': site['slug'], 'name': site['name'], 'url': site['url'],
                  'lang': site.get('lang', 'he'), 'category': site.get('category', 'news'),
                  **res}
