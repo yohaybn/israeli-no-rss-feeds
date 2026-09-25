@@ -197,6 +197,13 @@
       "url": "https://103fm.maariv.co.il",
       "lang": "he",
       "category": "radio"
+    },
+    {
+      "slug": "globes",
+      "name": "גלובס",
+      "url": "https://www.globes.co.il",
+      "lang": "he",
+      "category": "news"
     }
   ]
 }
