@@ -68,6 +68,8 @@ MIT. תודה לפרויקט [html2rss](https://github.com/html2rss/html2rss) ש
 
 RSS feeds for leading Israeli sites that don't have one - without a per-site scraper.
 
+**Request a new feed (self-service):** [open a feed request](https://github.com/yohaybn/israeli-no-rss-feeds/issues/new?template=feed-request.yml) with the site name and URL. A GitHub Actions job runs html2rss auto-source on it: if items are found it opens a PR automatically (live ~30 min after merge); otherwise it comments on the issue that a hand-written config is needed.
+
 **How:** a single config list (`sites.json`) + a GitHub Actions job (every 30 min) that runs the [html2rss](https://github.com/html2rss/html2rss) gem in auto-source mode over the list, normalizes each feed to **title + link + a short plain-text teaser (≤500 chars) + an image enclosure when the listing exposes one** (real publish dates where the listing exposes them, scrape time otherwise), and publishes the result to the `gh-pages` branch, served by GitHub Pages at `https://yohaybn.github.io/israeli-no-rss-feeds/feeds/<slug>.xml` (raw-URL fallback available). Live status page and machine-readable `status.json` at the same URL.
 
 **Add a site:** PR one line into `sites.json` (see format above); CI validates the schema and the next run generates the feed. If a site actually has a hidden native feed, html2rss discovers and uses it automatically.
