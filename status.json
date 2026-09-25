@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25 11:03 UTC",
+  "generated_at": "2026-09-25 12:32 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -38,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 3,
+      "items": 2,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -114,7 +114,7 @@
       "lang": "ar",
       "category": "news",
       "status": "ok",
-      "items": 50,
+      "items": 25,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/arab48.xml"
     },
     {
@@ -155,6 +155,16 @@
       "status": "ok",
       "items": 25,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist.xml"
+    },
+    {
+      "slug": "calcalist-tech",
+      "name": "כלכליסט - טכנולוגיה",
+      "url": "https://www.calcalist.co.il/calcalistech",
+      "lang": "he",
+      "category": "finance",
+      "status": "ok",
+      "items": 7,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist-tech.xml"
     },
     {
       "slug": "bizportal",
@@ -261,6 +271,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 15,
-  "total": 27
+  "ok_count": 16,
+  "total": 28
 }
