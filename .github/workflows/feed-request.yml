@@ -86,12 +86,16 @@ jobs:
           open('sites.json','a').write('\n')
           PY
           branch="feed-request/${slug}-${ISSUE_NUMBER}"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git checkout -b "$branch"
-          git add sites.json
-          git commit -m "Add $slug (feed request #$ISSUE_NUMBER)"
-          git push -u origin "$branch" --force-with-lease
+          # GITHUB_TOKEN (a GitHub App) cannot git-push refs carrying workflow-file
+          # history, so create the branch + commit via the Git Data/Contents API.
+          main_sha=$(gh api repos/{owner}/{repo}/git/refs/heads/main --jq .object.sha)
+          gh api -X POST repos/{owner}/{repo}/git/refs -f ref="refs/heads/$branch" -f sha="$main_sha" --jq .ref || echo "branch exists, updating it"
+          file_sha=$(gh api "repos/{owner}/{repo}/contents/sites.json?ref=$branch" --jq .sha)
+          gh api -X PUT repos/{owner}/{repo}/contents/sites.json \
+            -f message="Add $slug (feed request #$ISSUE_NUMBER)" \
+            -f branch="$branch" \
+            -f sha="$file_sha" \
+            -f content="$(base64 -w0 sites.json)" --jq .commit.sha
           cat > /tmp/pr-body.md <<BODY
           Feed request from #$ISSUE_NUMBER.
 
