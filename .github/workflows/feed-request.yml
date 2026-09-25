@@ -38,9 +38,10 @@ jobs:
           echo "extracted: url=$url name=$name slug=$slug"
       - name: Sanity-check extraction
         id: check
+        env:
+          url: ${{ steps.meta.outputs.url }}
+          slug: ${{ steps.meta.outputs.slug }}
         run: |
-          url='${{ steps.meta.outputs.url }}'
-          slug='${{ steps.meta.outputs.slug }}'
           if [ -z "$url" ] || ! printf '%s' "$slug" | grep -Eq '^[a-z0-9][a-z0-9-]*$'; then
             gh issue comment "$ISSUE_NUMBER" --body "לא הצלחתי לחלץ כתובת URL תקינה מהבקשה. ודאו שהשדה הראשון מכיל קישור מלא שמתחיל ב-http(s) ונסו שוב. / Could not extract a valid URL from the request."
             echo "usable=no" >> "$GITHUB_OUTPUT"
@@ -55,8 +56,9 @@ jobs:
       - name: Try html2rss auto-source on the URL
         id: probe
         if: steps.check.outputs.usable == 'yes'
+        env:
+          url: ${{ steps.meta.outputs.url }}
         run: |
-          url='${{ steps.meta.outputs.url }}'
           timeout 100 html2rss scrape "$url" --limit 5 --format jsonfeed > /tmp/probe.json 2>/tmp/probe.err || true
           items=$(python3 -c "
           import json,sys
@@ -69,10 +71,12 @@ jobs:
           echo "auto-source extracted $items items"
       - name: Add site and open PR
         if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items != '0'
+        env:
+          slug: ${{ steps.meta.outputs.slug }}
+          url: ${{ steps.meta.outputs.url }}
+          name: ${{ steps.meta.outputs.name }}
+          items: ${{ steps.probe.outputs.items }}
         run: |
-          slug='${{ steps.meta.outputs.slug }}'
-          url='${{ steps.meta.outputs.url }}'
-          name='${{ steps.meta.outputs.name }}'
           python3 - "$slug" "$url" "$name" <<'PY'
           import json,sys
           slug,url,name=sys.argv[1:4]
@@ -88,15 +92,18 @@ jobs:
           git add sites.json
           git commit -m "Add $slug (feed request #$ISSUE_NUMBER)"
           git push -u origin "$branch"
-          gh pr create --title "Add feed: $name ($slug)" --body "Feed request from #$ISSUE_NUMBER.
+          cat > /tmp/pr-body.md <<BODY
+          Feed request from #$ISSUE_NUMBER.
 
-          html2rss auto-source extracted ${{ steps.probe.outputs.items }} items from <$url> in JSON Feed mode.
+          html2rss auto-source extracted $items items from <$url> in JSON Feed mode.
 
           - slug: \`$slug\`
           - category/lang: defaults (news/he) - edit if needed
 
-          Merging adds it to the next generation run (every 30 min)."
-          gh issue comment "$ISSUE_NUMBER" --body "נמצאו ${{ steps.probe.outputs.items }} פריטים - נפתח PR להוספת הפיד. אחרי המיזוג הפיד יופיע בעמוד הסטטוס תוך ~30 דקות. / Auto-source found ${{ steps.probe.outputs.items }} items - a PR is open; after merge the feed goes live within ~30 minutes."
+          Merging adds it to the next generation run (every 30 min).
+          BODY
+          gh pr create --title "Add feed: $name ($slug)" --body-file /tmp/pr-body.md
+          gh issue comment "$ISSUE_NUMBER" --body "נמצאו $items פריטים - נפתח PR להוספת הפיד. אחרי המיזוג הפיד יופיע בעמוד הסטטוס תוך ~30 דקות. / Auto-source found $items items - a PR is open; after merge the feed goes live within ~30 minutes."
       - name: Comment when auto-source cannot build a feed
         if: steps.check.outputs.usable == 'yes' && steps.probe.outputs.items == '0'
         run: |
