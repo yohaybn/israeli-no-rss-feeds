@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25 10:57 UTC",
+  "generated_at": "2026-09-25 11:03 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -66,8 +66,9 @@
       "url": "https://hamal.co.il",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]"
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
       "slug": "makorrishon",
@@ -86,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
     },
     {
       "slug": "zman",
@@ -260,6 +261,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 14,
+  "ok_count": 15,
   "total": 27
 }
