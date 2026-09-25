@@ -48,6 +48,16 @@ def robots_allows(url):
     return True, 'robots.txt allows'
 
 
+
+def extract_xml(payload):
+    """Slice the XML document out of html2rss stdout (it may prepend log lines)."""
+    for marker in (b'<?xml', b'<rss', b'<feed'):
+        start = payload.find(marker)
+        if start >= 0:
+            return payload[start:]
+    raise ValueError('no XML document in html2rss output: %r' % payload[:150])
+
+
 def generate_site(site):
     """Return (result_dict, clean_feed_bytes_or_None)."""
     url = site['url']
@@ -65,9 +75,10 @@ def generate_site(site):
         tail = err[-1][:300] if err else f'exit {proc.returncode}, empty output'
         return {'status': 'failed', 'reason': tail}, None
     try:
-        cleaned, n_items = strip_item_content(proc.stdout)
+        cleaned, n_items = strip_item_content(extract_xml(proc.stdout))
     except Exception as e:
-        return {'status': 'failed', 'reason': f'feed post-processing failed: {e}'}, None
+        head = proc.stdout[:150].decode('utf-8', 'ignore').strip()
+        return {'status': 'failed', 'reason': f'feed post-processing failed: {e} | stdout head: {head}'}, None
     problems = validate_feed_bytes(cleaned)
     if problems:
         return {'status': 'failed', 'reason': 'invalid feed: ' + '; '.join(problems[:3])}, None
