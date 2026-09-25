@@ -2,8 +2,8 @@ name: Generate feeds
 
 on:
   schedule:
-    # Every 15 minutes. GitHub delays scheduled runs under load; expect 15-60 min in practice.
-    - cron: '*/15 * * * *'
+    # Every 30 minutes. GitHub delays scheduled runs under load; expect 15-60 min in practice.
+    - cron: '*/30 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate feeds
         env:
-          FEEDS_BASE_URL: https://yohay-ai.github.io/israeli-no-rss-feeds
+          FEEDS_BASE_URL: https://yohaybn.github.io/israeli-no-rss-feeds
         run: python3 scripts/generate_feeds.py
 
       - name: Validate generated feeds

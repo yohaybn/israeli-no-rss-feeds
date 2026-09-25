@@ -25,7 +25,7 @@ from feedlib import strip_item_content, validate_feed_bytes  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.environ.get('OUT_DIR', os.path.join(ROOT, 'out'))
-UA = 'israeli-no-rss-feeds (+https://github.com/yohay-ai/israeli-no-rss-feeds)'
+UA = 'israeli-no-rss-feeds (+https://github.com/yohaybn/israeli-no-rss-feeds)'
 SCRAPE_TIMEOUT = 120
 POLITENESS_DELAY = 2  # seconds between sites
 
@@ -118,9 +118,9 @@ code {{ background: #f4f4f4; padding: 1px 4px; }}
 <body>
 <h1>israeli-no-rss-feeds</h1>
 <p>פידי RSS (כותרת + קישור בלבד) לאתרים ישראליים מובילים שאין להם RSS משלהם.
-מתחדש אוטומטית כל 15 דקות דרך GitHub Actions עם
+מתחדש אוטומטית כל 30 דקות דרך GitHub Actions עם
 <a href="https://github.com/html2rss/html2rss">html2rss</a> (חילוץ אוטומטי, בלי סקרייפר פר-אתר).
-קוד המקור: <a href="https://github.com/yohay-ai/israeli-no-rss-feeds">github.com/yohay-ai/israeli-no-rss-feeds</a></p>
+קוד המקור: <a href="https://github.com/yohaybn/israeli-no-rss-feeds">github.com/yohaybn/israeli-no-rss-feeds</a></p>
 <p>עדכון אחרון: {status['generated_at']} · נוצרו {status['ok_count']}/{status['total']} פידים</p>
 <table>
 <tr><th>אתר</th><th>כתובת</th><th>סטטוס</th><th>פיד</th></tr>
@@ -138,7 +138,7 @@ def main():
     feeds_dir = os.path.join(OUT, 'feeds')
     os.makedirs(feeds_dir, exist_ok=True)
 
-    base_url = os.environ.get('FEEDS_BASE_URL', 'https://yohay-ai.github.io/israeli-no-rss-feeds')
+    base_url = os.environ.get('FEEDS_BASE_URL', 'https://yohaybn.github.io/israeli-no-rss-feeds')
     status = {'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
               'base_url': base_url, 'sites': []}
     ok_count = 0
