@@ -1,180 +1,149 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>www.kan.org.il: Api Newsflash V2 Newsflash</title>
     <link>https://www.kan.org.il/api/newsflash/v2/Newsflash</link>
-    <description>Latest items from https://www.kan.org.il/api/newsflash/v2/Newsflash</description>
-    <pubDate>Fri, 25 Sep 2026 10:37:37 -0000</pubDate>
+    <atom:link href="https://yohaybn.github.io/israeli-no-rss-feeds/feeds/kan11.xml" rel="self" type="application/rss+xml" /><description>Latest items from https://www.kan.org.il/api/newsflash/v2/Newsflash</description>
+    <pubDate>Fri, 25 Sep 2026 10:58:10 -0000</pubDate>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::NativeFeed (23))</generator>
+    <ttl>1</ttl>
     <item>
       <title>חברו של אופק, שנפל מפיצוץ רחפן: "אדם משכמו ומעלה. תמיד רצה לעשות יותר, לא אהב לשבת בצד"</title>
       <link>https://kan.org.il/content/kan-news/defense/1102943/</link>
       <pubDate>Fri, 25 Sep 2026 09:37:07 +0000</pubDate>
       <guid isPermaLink="false">a85k3z</guid>
-      <dc:date>2026-09-25T09:37:07+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>האסון ברצועה: צה"ל יקים צוות מומחים לבחינת האירוע, שימוש ברחפנים תוקפים הופסק ל-48 שעות</title>
       <link>https://kan.org.il/content/kan-news/defense/1102740/</link>
       <pubDate>Fri, 25 Sep 2026 07:13:58 +0000</pubDate>
       <guid isPermaLink="false">9znuoo</guid>
-      <dc:date>2026-09-25T07:13:58+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>חשד לרצח בחיפה: אישה בשנות ה-30 לחייה מתה, בן זוגה נעצר</title>
       <link>https://kan.org.il/content/kan-news/local/1102910/</link>
       <pubDate>Fri, 25 Sep 2026 06:22:34 +0000</pubDate>
       <guid isPermaLink="false">br8hot</guid>
-      <dc:date>2026-09-25T06:22:34+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>קולומביה ניתקה יחסים דיפלומטיים עם איראן: "עקב קשרים עם ארגוני טרור"</title>
       <link>https://kan.org.il/content/kan-news/global/1102906/</link>
       <pubDate>Fri, 25 Sep 2026 06:15:42 +0000</pubDate>
       <guid isPermaLink="false">15giwm3</guid>
-      <dc:date>2026-09-25T06:15:42+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>הותר לפרסום: רס"ר נדב קלי ורס"ר אופק מועלם נפלו בפיצוץ רחפן צה"לי ברצועה</title>
       <link>https://kan.org.il/content/kan-news/defense/1102740/</link>
       <pubDate>Fri, 25 Sep 2026 05:26:21 +0000</pubDate>
       <guid isPermaLink="false">18pzt2n</guid>
-      <dc:date>2026-09-25T05:26:21+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>קטר משיבה לנתניהו: "ניסיון להסיט את תשומת הלב מההפרות בשטחים"</title>
       <link>https://kan.org.il/content/kan-news/defense/live-1102862/liveid-1102882/</link>
       <pubDate>Thu, 24 Sep 2026 23:55:55 +0000</pubDate>
       <guid isPermaLink="false">x7pdrr</guid>
-      <dc:date>2026-09-24T23:55:55+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נשיא איראן: מוכנים להתקדם על בסיס ההסכם עם טראמפ, לא אנחנו סגרנו את הורמוז</title>
       <link>https://kan.org.il/content/kan-news/defense/live-1102862/liveid-1102878/</link>
       <pubDate>Thu, 24 Sep 2026 22:27:10 +0000</pubDate>
       <guid isPermaLink="false">12wsrbq</guid>
-      <dc:date>2026-09-24T22:27:10+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>בנט: "לנתניהו הייתה הזדמנות היסטורית להכריז על קטאר כאויב, אך הוא החמיץ את ההזדמנות"</title>
       <link>https://kan.org.il/content/kan-news/politic/1102377/</link>
       <pubDate>Thu, 24 Sep 2026 18:52:46 +0000</pubDate>
       <guid isPermaLink="false">gh0q7e</guid>
-      <dc:date>2026-09-24T18:52:46+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נתניהו נאם בעצרת האו"ם, עשרות נציגים יצאו מהאולם</title>
       <link>https://kan.org.il/content/kan-news/politic/1102377/</link>
       <pubDate>Thu, 24 Sep 2026 18:16:33 +0000</pubDate>
       <guid isPermaLink="false">1ta3jdu</guid>
-      <dc:date>2026-09-24T18:16:33+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נתניהו עונה לא-שרע: "יהודים היו ברמת הגולן עוד מימי משה רבנו"</title>
       <link>https://kan.org.il/content/kan-news/politic/1102377/</link>
       <pubDate>Thu, 24 Sep 2026 18:16:57 +0000</pubDate>
       <guid isPermaLink="false">am0tgf</guid>
-      <dc:date>2026-09-24T18:16:57+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נתניהו תקף את ארדואן: "דיקטטור שמארח את ראשי הטרור של חמאס"</title>
       <link>https://kan.org.il/content/kan-news/politic/1102377/</link>
       <pubDate>Thu, 24 Sep 2026 18:32:35 +0000</pubDate>
       <guid isPermaLink="false">16wlz1c</guid>
-      <dc:date>2026-09-24T18:32:35+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נתניהו על קטר: "הוציאה מיליארדים כדי להפיץ שקרים על מדינתי"</title>
       <link>https://kan.org.il/content/kan-news/politic/1102377/</link>
       <pubDate>Thu, 24 Sep 2026 18:33:07 +0000</pubDate>
       <guid isPermaLink="false">1i53rbe</guid>
-      <dc:date>2026-09-24T18:33:07+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נתניהו: "זה רק עניין של זמן, העם באיראן יגבר על המשטר. המשטר הרע הזה ייפול"</title>
       <link>https://kan.org.il/content/kan-news/politic/1102377/</link>
       <pubDate>Thu, 24 Sep 2026 18:47:00 +0000</pubDate>
       <guid isPermaLink="false">1ij73sq</guid>
-      <dc:date>2026-09-24T18:47:00+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>מצטרפת למגמה חיובית: עלייה באחוזי גיוס החרדים במחזור האחרון</title>
       <link>https://kan.org.il/content/kan-news/defense/1102763/</link>
       <pubDate>Thu, 24 Sep 2026 17:57:29 +0000</pubDate>
       <guid isPermaLink="false">3xr7u0</guid>
-      <dc:date>2026-09-24T17:57:29+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>גורם ירדני לכאן חדשות: "הנאום של המלך באו"ם - אזהרה. ממשלת ישראל מכשילה את השלום באזור"</title>
       <link>https://kan.org.il/content/kan-news/global/1102776/</link>
       <pubDate>Thu, 24 Sep 2026 17:18:20 +0000</pubDate>
       <guid isPermaLink="false">1ahgh96</guid>
-      <dc:date>2026-09-24T17:18:20+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>בגיל 89: הלך לעולמו הסופר והמשורר יהודה אטלס</title>
       <link>https://kan.org.il/content/kan-news/culture/1102766/</link>
       <pubDate>Thu, 24 Sep 2026 17:00:44 +0000</pubDate>
       <guid isPermaLink="false">1l8slkh</guid>
-      <dc:date>2026-09-24T17:00:44+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>אבו מאזן בנאום מרחוק באו"ם: "העם הפלסטיני עומד בפני אחד מהרגעים המסוכנים בתולדותיו"</title>
       <link>https://kan.org.il/content/kan-news/politic/1102720/</link>
       <pubDate>Thu, 24 Sep 2026 14:30:44 +0000</pubDate>
       <guid isPermaLink="false">x4s0nl</guid>
-      <dc:date>2026-09-24T14:30:44+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>שר התרבות זוהר בפנייה חריגה לבתי הקולנוע והסינמטקים: אל תקרינו את הסרט השקרי ״נז״א״</title>
       <link>https://kan.org.il/content/kan-news/culture/1102610/</link>
       <pubDate>Thu, 24 Sep 2026 13:30:52 +0000</pubDate>
       <guid isPermaLink="false">1bq72nu</guid>
-      <dc:date>2026-09-24T13:30:52+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>בכיר במשטרה משיב לצה״ל: ״חבל שבצה״ל מנסים לרמות את הציבור רק בשם הקרדיט האבוד״</title>
       <link>https://kan.org.il/content/kan-news/defense/1102656/</link>
       <pubDate>Thu, 24 Sep 2026 13:27:35 +0000</pubDate>
       <guid isPermaLink="false">1kk6652</guid>
-      <dc:date>2026-09-24T13:27:35+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>טראמפ: רוצה לאפשר ל-AI להמשיך להתפתח, זאת גם עמדת סין</title>
       <link>https://kan.org.il/content/kan-news/global/1102642/</link>
       <pubDate>Thu, 24 Sep 2026 13:05:46 +0000</pubDate>
       <guid isPermaLink="false">1inb90t</guid>
-      <dc:date>2026-09-24T13:05:46+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>צה"ל נגד המשטרה: "בניגוד להודעות חסרות אחריות, נשללה הימצאות מנהרה בקלקיליה"</title>
       <link>https://kan.org.il/content/kan-news/defense/1102656/</link>
       <pubDate>Thu, 24 Sep 2026 12:38:54 +0000</pubDate>
       <guid isPermaLink="false">12zj1yp</guid>
-      <dc:date>2026-09-24T12:38:54+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>נקבע מותו של ברוך נריה בן ה-9, שנדבק ב"אמבה אוכלת מוח" לאחר ששחה בכנרת</title>
       <link>https://kan.org.il/content/kan-news/local/1102649/</link>
       <pubDate>Thu, 24 Sep 2026 12:40:18 +0000</pubDate>
       <guid isPermaLink="false">sswbse</guid>
-      <dc:date>2026-09-24T12:40:18+00:00</dc:date>
-    </item>
+      </item>
     <item>
       <title>ועדת הבחירות דחתה את הבקשה לפסול את מפלגת הדמוקרטים מהתמודדות בבחירות</title>
       <link>https://kan.org.il/content/kan-news/politic/live-1102328/</link>
       <pubDate>Thu, 24 Sep 2026 11:27:31 +0000</pubDate>
       <guid isPermaLink="false">j9o00e</guid>
-      <dc:date>2026-09-24T11:27:31+00:00</dc:date>
-    </item>
-    <item>
-      <title>יוצרי נז"א: "הסרט יופץ בחינם באינטרנט"</title>
-      <link>https://kan.org.il/content/kan-news/culture/1102610/</link>
-      <pubDate>Thu, 24 Sep 2026 10:49:46 +0000</pubDate>
-      <guid isPermaLink="false">9bxmed</guid>
-      <dc:date>2026-09-24T10:49:46+00:00</dc:date>
-    </item>
-    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::NativeFeed (24))</generator>
-    <ttl>1</ttl>
-    <dc:date>2026-09-25T10:37:37Z</dc:date>
-  </channel>
+      </item>
+    </channel>
 </rss>

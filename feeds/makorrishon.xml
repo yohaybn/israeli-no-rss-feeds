@@ -1,33 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>מקור ראשון - חדשות, פרשנות, דעות וכתבות מגזין מהארץ ומהעולם</title>
     <link>https://www.makorrishon.co.il/</link>
-    <description>חדשות, פרשנות, דעות וכתבות מגזין מהארץ ומהעולם</description>
+    <atom:link href="https://yohaybn.github.io/israeli-no-rss-feeds/feeds/makorrishon.xml" rel="self" type="application/rss+xml" /><description>חדשות, פרשנות, דעות וכתבות מגזין מהארץ ומהעולם</description>
     <language>he-IL</language>
-    <pubDate>Fri, 25 Sep 2026 10:38:58 +0000</pubDate>
+    <pubDate>Fri, 25 Sep 2026 10:58:54 +0000</pubDate>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::SemanticHtml (4))</generator>
+    <ttl>1</ttl>
     <item>
       <title>עכשיו זמן צומוד: המלחמה נגד איראן לא תוכרע באו"ם</title>
       <link>https://www.makorrishon.co.il/news/middleeast/article/374119</link>
       <guid isPermaLink="false">1akfbch</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:54 GMT</pubDate></item>
     <item>
       <title>תיקון ליום הכיפורים הקשה של לפני המלחמה</title>
       <link>https://www.makorrishon.co.il/opinions/article/373830</link>
       <guid isPermaLink="false">17eyc64</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:54 GMT</pubDate></item>
     <item>
       <title>בואו נדבר ברצינות על התכנית המשפטית של הציונות הדתית</title>
       <link>https://www.makorrishon.co.il/news/law/article/374048</link>
       <guid isPermaLink="false">nt132z</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:54 GMT</pubDate></item>
     <item>
       <title>האשליה האופטית של שטח C</title>
       <link>https://www.makorrishon.co.il/settlement/article/374135</link>
       <guid isPermaLink="false">1h34ex4</guid>
-    </item>
-    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::SemanticHtml (4))</generator>
-    <ttl>1</ttl>
-    <dc:date>2026-09-25T10:38:58.494795+00:00</dc:date>
-  </channel>
+    <pubDate>Fri, 25 Sep 2026 10:58:54 GMT</pubDate></item>
+    </channel>
 </rss>

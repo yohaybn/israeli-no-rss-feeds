@@ -1,143 +1,142 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>שיעורים בנושא רביבים | בית המדרש | שיעורי תורה | אתר ישיבה</title>
     <link>https://www.yeshiva.org.il/midrash/category/335</link>
-    <description>עכשיו באתר ישיבה</description>
+    <atom:link href="https://yohaybn.github.io/israeli-no-rss-feeds/feeds/yeshiva.xml" rel="self" type="application/rss+xml" /><description>עכשיו באתר ישיבה</description>
     <language>he</language>
-    <pubDate>Fri, 25 Sep 2026 10:42:28 +0000</pubDate>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 +0000</pubDate>
     <image>
       <url>https://pic.yeshiva.org.il/content/images/logo/share-logo-new-he.png?v=20210629043155</url>
       <title>שיעורים בנושא רביבים | בית המדרש | שיעורי תורה | אתר ישיבה</title>
       <link>https://www.yeshiva.org.il/midrash/category/335</link>
     </image>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::Html (25))</generator>
+    <ttl>2</ttl>
     <item>
       <title>תנו כבוד לתורה</title>
       <link>https://www.yeshiva.org.il/midrash/60752</link>
       <guid isPermaLink="false">7kgsph</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>לעורר את הילדים לתשובה</title>
       <link>https://www.yeshiva.org.il/midrash/60684</link>
       <guid isPermaLink="false">7cewh2</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>שש השאלות ששואלים אדם בדין</title>
       <link>https://www.yeshiva.org.il/midrash/60567</link>
       <guid isPermaLink="false">1leop85</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>קביעות עיתים לתורה</title>
       <link>https://www.yeshiva.org.il/midrash/60515</link>
       <guid isPermaLink="false">8yafti</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>ייעודו של מעשר כספים</title>
       <link>https://www.yeshiva.org.il/midrash/60472</link>
       <guid isPermaLink="false">1umycol</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>השליחות הגדולה של מורי ישראל</title>
       <link>https://www.yeshiva.org.il/midrash/60400</link>
       <guid isPermaLink="false">8h9f2u</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>בין דין תורה לביטחון המדינה</title>
       <link>https://www.yeshiva.org.il/midrash/60316</link>
       <guid isPermaLink="false">1mngug9</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>בין סדר חברתי לתיקון עולם</title>
       <link>https://www.yeshiva.org.il/midrash/60249</link>
       <guid isPermaLink="false">14s3yam</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>לימוד מדעים - המפתח להבנת התורה</title>
       <link>https://www.yeshiva.org.il/midrash/60183</link>
       <guid isPermaLink="false">zusgfr</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>מברכת המזוזה ועד מנהגי העדות בתפילין</title>
       <link>https://www.yeshiva.org.il/midrash/60116</link>
       <guid isPermaLink="false">799z9n</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>חטא המרגלים כמבחן אמונה לדורות</title>
       <link>https://www.yeshiva.org.il/midrash/60080</link>
       <guid isPermaLink="false">15n28bi</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>לייקר את ערכם של המורים והמורות</title>
       <link>https://www.yeshiva.org.il/midrash/59989</link>
       <guid isPermaLink="false">osh65a</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>בין מלאכת החיים להלכות אבלות</title>
       <link>https://www.yeshiva.org.il/midrash/59960</link>
       <guid isPermaLink="false">1mec8wf</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>מחיר המחלוקת והפרדת הקהילות</title>
       <link>https://www.yeshiva.org.il/midrash/59925</link>
       <guid isPermaLink="false">1kkyetd</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>העבודה - תפקיד האדם בעולם</title>
       <link>https://www.yeshiva.org.il/midrash/59896</link>
       <guid isPermaLink="false">15k0te7</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>בין לימוד תורה לאחריות הפרנסה</title>
       <link>https://www.yeshiva.org.il/midrash/59831</link>
       <guid isPermaLink="false">udc3cm</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>גדול הנהנה מיגיע כפיו</title>
       <link>https://www.yeshiva.org.il/midrash/59793</link>
       <guid isPermaLink="false">wwjx6j</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>'חפצי קודש' לתשתית חיינו</title>
       <link>https://www.yeshiva.org.il/midrash/59676</link>
       <guid isPermaLink="false">12y227u</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>כשקדושת החג פוגשת את השבת</title>
       <link>https://www.yeshiva.org.il/midrash/59634</link>
       <guid isPermaLink="false">1t2ic4z</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>גבולות הקודש והחול בבית הכנסת</title>
       <link>https://www.yeshiva.org.il/midrash/59650</link>
       <guid isPermaLink="false">cozud5</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>חובת הגניזה בעידן המיחזור</title>
       <link>https://www.yeshiva.org.il/midrash/59571</link>
       <guid isPermaLink="false">qcmpda</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>מזוזה בכל חדר: החיוב, הפטור והברכה</title>
       <link>https://www.yeshiva.org.il/midrash/59535</link>
       <guid isPermaLink="false">1pxq97b</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>שלא להיכנס לבית הכנסת לצורך חול</title>
       <link>https://www.yeshiva.org.il/midrash/59470</link>
       <guid isPermaLink="false">18yi7zc</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>מצוות מזוזה במעלית</title>
       <link>https://www.yeshiva.org.il/midrash/59451</link>
       <guid isPermaLink="false">ynbgto</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
     <item>
       <title>גבולות הקדושה של בית התפילה</title>
       <link>https://www.yeshiva.org.il/midrash/59340</link>
       <guid isPermaLink="false">1lae8b8</guid>
-    </item>
-    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::Html (25))</generator>
-    <ttl>2</ttl>
-    <dc:date>2026-09-25T10:42:28.829079+00:00</dc:date>
-  </channel>
+    <pubDate>Fri, 25 Sep 2026 11:02:27 GMT</pubDate></item>
+    </channel>
 </rss>

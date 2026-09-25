@@ -1,143 +1,142 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>גלצ</title>
     <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/</link>
-    <description>גלצ היא תחנת רדיו צבאית המשדרת מאז 1950 בפריסה ארצית. תדר השידור של גלי צה''ל הוא 96.6. שידורנו כוללים יומני חדשות, תכניות אקטואליה ותרבות, מוזיקה ועוד. בין תכניותיה הבולטות של התחנה תוכלו למצוא את ''האוניברסיטה המשודרת'', ''בוקר טוב ישראל'', ''ציפורי לילה'', ''מה בוער'', ''נכון להבוקר'' ועוד רבות וטובות. בנוסף, התחנה מבליטה על סדר היום שלה את נושאי הצבא והביטחון, עם תכניות יומיות כגון ''רצועת הביטחון'' ותכניות נוספות המוקדשות ללובשי המדים כמו ''קולה של אימא''.</description>
+    <atom:link href="https://yohaybn.github.io/israeli-no-rss-feeds/feeds/glz.xml" rel="self" type="application/rss+xml" /><description>גלצ היא תחנת רדיו צבאית המשדרת מאז 1950 בפריסה ארצית. תדר השידור של גלי צה''ל הוא 96.6. שידורנו כוללים יומני חדשות, תכניות אקטואליה ותרבות, מוזיקה ועוד. בין תכניותיה הבולטות של התחנה תוכלו למצוא את ''האוניברסיטה המשודרת'', ''בוקר טוב ישראל'', ''ציפורי לילה'', ''מה בוער'', ''נכון להבוקר'' ועוד רבות וטובות. בנוסף, התחנה מבליטה על סדר היום שלה את נושאי הצבא והביטחון, עם תכניות יומיות כגון ''רצועת הביטחון'' ותכניות נוספות המוקדשות ללובשי המדים כמו ''קולה של אימא''.</description>
     <language>he</language>
-    <pubDate>Fri, 25 Sep 2026 10:43:08 +0000</pubDate>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 +0000</pubDate>
     <image>
       <url>https://glz.co.il/media/2724/illustration_glz2.jpg</url>
       <title>גלצ</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/</link>
     </image>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::JsonState (6), AutoSource::SemanticHtml (19))</generator>
+    <ttl>360</ttl>
     <item>
       <title>זה המקום עם אהוד בנאי</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%90%D7%94%D7%95%D7%93-%D7%91%D7%A0%D7%90%D7%99</link>
       <guid isPermaLink="false">1tt2hw4</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>ספרים רבותיי ספרים</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A1%D7%A4%D7%A8%D7%99%D7%9D-%D7%A8%D7%91%D7%95%D7%AA%D7%99%D7%99-%D7%A1%D7%A4%D7%A8%D7%99%D7%9D</link>
       <guid isPermaLink="false">ia7ar3</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>מילים ומנגינות | יורם טהרלב</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%9E%D7%99%D7%9C%D7%99%D7%9D-%D7%95%D7%9E%D7%A0%D7%92%D7%99%D7%A0%D7%95%D7%AA</link>
       <guid isPermaLink="false">elpmpt</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>מוזיקה לערב חג</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A1%D7%95%D7%9B%D7%95%D7%AA-%D7%91%D7%92%D7%9C%D7%99-%D7%A6%D7%94%D7%9C</link>
       <guid isPermaLink="false">1hgmy9f</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>ספיישל מוזיקלי: 25 שנה למותה של הראפרית Aaliyah</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A1%D7%A4%D7%99%D7%99%D7%A9%D7%9C%D7%99%D7%9D-%D7%9E%D7%95%D7%96%D7%99%D7%A7%D7%9C%D7%99%D7%99%D7%9D</link>
       <guid isPermaLink="false">1q4a3da</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>איחוד שידורים עם גלגלצ</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%90%D7%99%D7%97%D7%95%D7%93-%D7%A9%D7%99%D7%93%D7%95%D7%A8%D7%99%D7%9D-%D7%A2%D7%9D-%D7%92%D7%9C%D7%92%D7%9C%D7%A6</link>
       <guid isPermaLink="false">7d2n0n</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>רצועת הביטחון - אסטרטגיה וממשל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%94%D7%91%D7%99%D7%98%D7%97%D7%95%D7%9F-%D7%90%D7%A1%D7%98%D7%A8%D7%98%D7%92%D7%99%D7%94-%D7%95%D7%9E%D7%9E%D7%A9%D7%9C</link>
       <guid isPermaLink="false">15wyme6</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>עובדים על אוטומט: סדרת הכתבות על מצב ההייטק הישראלי</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D-%D7%A2%D7%9C-%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%98-%D7%A1%D7%93%D7%A8%D7%AA-%D7%94%D7%9B%D7%AA%D7%91%D7%95%D7%AA-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%91-%D7%94%D7%94%D7%99%D7%99%D7%98%D7%A7-%D7%94%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99</link>
       <guid isPermaLink="false">uqz0op</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>30 שנה לציון מותו של סשה ארגוב</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/30-%D7%A9%D7%A0%D7%94-%D7%9C%D7%A6%D7%99%D7%95%D7%9F-%D7%9E%D7%95%D7%AA%D7%95-%D7%A9%D7%9C-%D7%A1%D7%A9%D7%94-%D7%90%D7%A8%D7%92%D7%95%D7%91</link>
       <guid isPermaLink="false">ydr46i</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>ארכיון גל''צ: אורי זוהר ז''ל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%90%D7%A8%D7%9B%D7%99%D7%95%D7%9F-%D7%92%D7%9C%D7%A6-%D7%90%D7%95%D7%A8%D7%99-%D7%96%D7%95%D7%94%D7%A8-%D7%96%D7%9C</link>
       <guid isPermaLink="false">sc6msb</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>״מהמקפצה!״ תכנית הקיץ של גלי צה״ל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%9E%D7%94%D7%9E%D7%A7%D7%A4%D7%A6%D7%94-%D7%AA%D7%9B%D7%A0%D7%99%D7%AA-%D7%94%D7%A7%D7%99%D7%A5-%D7%A9%D7%9C-%D7%92%D7%9C%D7%99-%D7%A6%D7%94-%D7%9C</link>
       <guid isPermaLink="false">fqxayh</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>נוחתים באמריקה: מוסף המונדיאל של גלי צה''ל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A0%D7%95%D7%97%D7%AA%D7%99%D7%9D-%D7%91%D7%90%D7%9E%D7%A8%D7%99%D7%A7%D7%94-%D7%9E%D7%95%D7%A1%D7%A3-%D7%94%D7%9E%D7%95%D7%A0%D7%93%D7%99%D7%90%D7%9C-%D7%A9%D7%9C-%D7%92%D7%9C%D7%99-%D7%A6%D7%94%D7%9C</link>
       <guid isPermaLink="false">1r8srvm</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>יום ההוקרה לפצועי מערכות ישראל ופעולות האיבה</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%99%D7%95%D7%9D-%D7%94%D7%94%D7%95%D7%A7%D7%A8%D7%94-%D7%9C%D7%A4%D7%A6%D7%95%D7%A2%D7%99-%D7%9E%D7%A2%D7%A8%D7%9B%D7%95%D7%AA-%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%95%D7%A4%D7%A2%D7%95%D7%9C%D7%95%D7%AA-%D7%94%D7%90%D7%99%D7%91%D7%94</link>
       <guid isPermaLink="false">1o5sgd6</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>יום הזיכרון לחללי מערכות ישראל ופעולות האיבה בגלי צה''ל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%99%D7%95%D7%9D-%D7%94%D7%96%D7%99%D7%9B%D7%A8%D7%95%D7%9F-%D7%9C%D7%97%D7%9C%D7%9C%D7%99-%D7%9E%D7%A2%D7%A8%D7%9B%D7%95%D7%AA-%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%95%D7%A4%D7%A2%D7%95%D7%9C%D7%95%D7%AA-%D7%94%D7%90%D7%99%D7%91%D7%94-%D7%91%D7%92%D7%9C%D7%99-%D7%A6%D7%94%D7%9C</link>
       <guid isPermaLink="false">16zifnp</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>יום הזיכרון לשואה ולגבורה בגלי צה''ל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%99%D7%95%D7%9D-%D7%94%D7%96%D7%99%D7%9B%D7%A8%D7%95%D7%9F-%D7%9C%D7%A9%D7%95%D7%90%D7%94-%D7%95%D7%9C%D7%92%D7%91%D7%95%D7%A8%D7%94-%D7%91%D7%92%D7%9C%D7%99-%D7%A6%D7%94%D7%9C</link>
       <guid isPermaLink="false">uk2h9y</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>יום ירושלים התש''ף בגלי צה''ל</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%99%D7%95%D7%9D-%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D-%D7%91%D7%92%D7%9C%D7%99-%D7%A6%D7%94%D7%9C</link>
       <guid isPermaLink="false">t0iq45</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>מכתבים שלא נשלחו - מיומניה של שורדת השואה מרים בולה</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%9E%D7%9B%D7%AA%D7%91%D7%99%D7%9D-%D7%A9%D7%9C%D7%90-%D7%A0%D7%A9%D7%9C%D7%97%D7%95-%D7%9E%D7%99%D7%95%D7%9E%D7%A0%D7%99%D7%94-%D7%A9%D7%9C-%D7%A9%D7%95%D7%A8%D7%93%D7%AA-%D7%94%D7%A9%D7%95%D7%90%D7%94-%D7%9E%D7%A8%D7%99%D7%9D-%D7%91%D7%95%D7%9C%D7%94</link>
       <guid isPermaLink="false">d29ua6</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>פעם היו כאן חיים - סיפורן של קהילות בשואה</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%A4%D7%A2%D7%9D-%D7%94%D7%99%D7%95-%D7%9B%D7%90%D7%9F-%D7%97%D7%99%D7%99%D7%9D-%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%9F-%D7%A9%D7%9C-%D7%A7%D7%94%D7%99%D7%9C%D7%95%D7%AA-%D7%91%D7%A9%D7%95%D7%90%D7%94</link>
       <guid isPermaLink="false">34xfc6</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: 20 שנה לפיגועי 9/11</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-20-%D7%A9%D7%A0%D7%94-%D7%9C%D7%A4%D7%99%D7%92%D7%95%D7%A2%D7%99-911</link>
       <guid isPermaLink="false">go9jih</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: מהים התיכון למזרח התיכון - בריתות במרחב</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-%D7%9E%D7%94%D7%99%D7%9D-%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%9C%D7%9E%D7%96%D7%A8%D7%97-%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%91%D7%A8%D7%99%D7%AA%D7%95%D7%AA-%D7%91%D7%9E%D7%A8%D7%97%D7%91</link>
       <guid isPermaLink="false">ukzbpr</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: מהים התיכון למזרח התיכון - דת ומדינה</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-%D7%9E%D7%94%D7%99%D7%9D-%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%9C%D7%9E%D7%96%D7%A8%D7%97-%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%93%D7%AA-%D7%95%D7%9E%D7%93%D7%99%D7%A0%D7%94</link>
       <guid isPermaLink="false">ioc28i</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: מהים התיכון למזרח התיכון - מאבקים חברתיים</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-%D7%9E%D7%94%D7%99%D7%9D-%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%9C%D7%9E%D7%96%D7%A8%D7%97-%D7%94%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%9E%D7%90%D7%91%D7%A7%D7%99%D7%9D-%D7%97%D7%91%D7%A8%D7%AA%D7%99%D7%99%D7%9D</link>
       <guid isPermaLink="false">156jfbd</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: מסע סביב רעיון - מלחמה ושלום</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-%D7%9E%D7%A1%D7%A2-%D7%A1%D7%91%D7%99%D7%91-%D7%A8%D7%A2%D7%99%D7%95%D7%9F-%D7%9E%D7%9C%D7%97%D7%9E%D7%94-%D7%95%D7%A9%D7%9C%D7%95%D7%9D</link>
       <guid isPermaLink="false">cjntj5</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: מסע סביב רעיון – מיטב המרצים על ''אוכל - מזון למחשבה''</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-%D7%9E%D7%A1%D7%A2-%D7%A1%D7%91%D7%99%D7%91-%D7%A8%D7%A2%D7%99%D7%95%D7%9F-%D7%9E%D7%99%D7%98%D7%91-%D7%94%D7%9E%D7%A8%D7%A6%D7%99%D7%9D-%D7%A2%D7%9C-%D7%90%D7%95%D7%9B%D7%9C</link>
       <guid isPermaLink="false">11mwm1q</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
     <item>
       <title>האוניברסיטה המשודרת: רפובליקת ויימאר - עלייתה ונפילתה של הדמוקרטיה הגרמנית</title>
       <link>https://glz.co.il/%D7%92%D7%9C%D7%A6/%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%95%D7%AA/%D7%94%D7%90%D7%95%D7%A0%D7%99%D7%91%D7%A8%D7%A1%D7%99%D7%98%D7%94-%D7%94%D7%9E%D7%A9%D7%95%D7%93%D7%A8%D7%AA-%D7%A8%D7%A4%D7%95%D7%91%D7%9C%D7%99%D7%A7%D7%AA-%D7%95%D7%99%D7%99%D7%9E%D7%90%D7%A8-%D7%A2%D7%9C%D7%99%D7%99%D7%AA%D7%94-%D7%95%D7%A0%D7%A4%D7%99%D7%9C%D7%AA%D7%94-%D7%A9%D7%9C-%D7%94%D7%93%D7%9E%D7%95%D7%A7%D7%A8%D7%98%D7%99%D7%94-%D7%94%D7%92%D7%A8%D7%9E%D7%A0%D7%99%D7%AA</link>
       <guid isPermaLink="false">12vy5ys</guid>
-    </item>
-    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::JsonState (6), AutoSource::SemanticHtml (19))</generator>
-    <ttl>360</ttl>
-    <dc:date>2026-09-25T10:43:08.56994+00:00</dc:date>
-  </channel>
+    <pubDate>Fri, 25 Sep 2026 11:03:05 GMT</pubDate></item>
+    </channel>
 </rss>

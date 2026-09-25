@@ -1,143 +1,142 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>חדשות, טלוויזיה, דיגיטל, שידור חי | רשת 13</title>
     <link>https://13tv.co.il/</link>
-    <description>אתר התוכן של ערוץ רשת 13. חדשות 13, האח הגדול, משחקי השף, הישרדות ועוד תוכניות רשת, דיגיטל, אוכל, VOD, שידור חי והתכנים הכי מעניינים בישראל</description>
+    <atom:link href="https://yohaybn.github.io/israeli-no-rss-feeds/feeds/reshet13.xml" rel="self" type="application/rss+xml" /><description>אתר התוכן של ערוץ רשת 13. חדשות 13, האח הגדול, משחקי השף, הישרדות ועוד תוכניות רשת, דיגיטל, אוכל, VOD, שידור חי והתכנים הכי מעניינים בישראל</description>
     <language>he</language>
-    <pubDate>Fri, 25 Sep 2026 10:38:15 +0000</pubDate>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 +0000</pubDate>
     <image>
       <url>https://media3.reshet.tv/image/upload/t_og_image/v1693333613/uploads/2023/903690760.webp</url>
       <title>חדשות, טלוויזיה, דיגיטל, שידור חי | רשת 13</title>
       <link>https://13tv.co.il/</link>
     </image>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::JsonState (25))</generator>
+    <ttl>2</ttl>
     <item>
       <title>תוכניות רשת 13</title>
       <link>https://13tv.co.il/allshows/</link>
       <guid isPermaLink="false">whrame</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>הותר לפרסום: שני לוחמי מילואים נהרגו מפיצוץ רחפן צה"לי ברצועה</title>
       <link>https://13tv.co.il/item/news/politics/security/idf-905369672/</link>
       <guid isPermaLink="false">1slqg4</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>כתב אישום הוגש נגד דורון ויצמן בגין רצח ראש המאפיה הקווקזית יאניס יושבייב</title>
       <link>https://13tv.co.il/item/news/domestic/crime-and-justice/uqwdk-905369938/</link>
       <guid isPermaLink="false">1lj665s</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>חשד לרצח בחיפה: נקבע מותה של אישה בשנות ה-30 לחייה, בן זוגה נעצר</title>
       <link>https://13tv.co.il/item/news/domestic/crime-and-justice/ru878-905369900/</link>
       <guid isPermaLink="false">1m2khqg</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>ישיבה נעימה בסוכה - ואפשרות לגשמים בחול המועד | התחזית המלאה לחג</title>
       <link>https://13tv.co.il/item/news/weather/weather-3-905369819/</link>
       <guid isPermaLink="false">35px0p</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>היועמ"שית דורשת מבג"ץ צו ביניים נגד חוק התקשורת של קרעי: "התקבל בהליך משובש; צבר קיצוני של פגמים מהותיים"</title>
       <link>https://13tv.co.il/item/news/domestic/crime-and-justice/q4zll-905369698/</link>
       <guid isPermaLink="false">by71br</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>נתניהו תקף את קטר, את ארדואן ואת ממדאני: "איזה עם שמנסה לעשות ג'נוסייד מכניס ציוד הומניטרי לעזה?"</title>
       <link>https://13tv.co.il/item/news/politics/security/kn5ti-905369039</link>
       <guid isPermaLink="false">r27d9w</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>נתניהו הציג ביפר בעצרת האו"ם: "זוכרים את זה? חיזבאללה בהחלט זוכר"</title>
       <link>https://13tv.co.il/item/news/politics/security/kn5ti-905369039/</link>
       <guid isPermaLink="false">iufnpx</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>נתניהו: "ישראל הגנה גם על מדינות שנציגיהן עזבו את האולם מהאיום האיראני"</title>
       <link>https://13tv.co.il/item/news/politics/security/day-1084-905368084/</link>
       <guid isPermaLink="false">p6flm1</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>פרסום ראשון: ראשי גוש השינוי יציעו לגנץ "פרישה בכבוד"</title>
       <link>https://13tv.co.il/item/news/politics/politics/abhya-905369461/</link>
       <guid isPermaLink="false">175e652</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>הסופר והמשורר יהודה אטלס הלך לעולמו</title>
       <link>https://13tv.co.il/item/news/domestic/culture-entertainment/d4lvz-905369487/</link>
       <guid isPermaLink="false">nl7xq8</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>הרמטכ"ל באזהרה לאיראן: "המשטר פגוע וחבול, אך לא משכיל לשנות את כוונותיו. עיננו פקוחה"</title>
       <link>https://13tv.co.il/item/news/politics/security/nz55t-905369385/</link>
       <guid isPermaLink="false">w8x7oy</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>רוצחו של מוחמד אבו-ח'דיר, יוסף חיים בן דוד, מת לאחר שפונה לבית חולים</title>
       <link>https://13tv.co.il/item/news/politics/security/q9dwa-905369277/</link>
       <guid isPermaLink="false">2yvut5</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>צה"ל נגד המשטרה ומג"ב: "בניגוד להודעות חסרות אחריות, נשללה הימצאות מנהרה בקלקיליה"</title>
       <link>https://13tv.co.il/item/news/politics/security/mkdi9-905369171/</link>
       <guid isPermaLink="false">5hbyi1</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>אחרי שנים של סכסוכים מדממים: הסולחה הנדירה בעולם התחתון בצפון</title>
       <link>https://13tv.co.il/item/news/domestic/crime-and-justice/q1dsv-905369143/</link>
       <guid isPermaLink="false">gvpfy4</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>נקבע מותו של ברוך נריה בן ה-9, שנדבק ב"אמבה אוכלת מוח" בכינרת</title>
       <link>https://13tv.co.il/item/news/domestic/health/ka3ca-905369154/</link>
       <guid isPermaLink="false">153hsjz</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>ה-CIA הזהיר את ספרד, צרפת ואיטליה: רוסיה מתכננת מתקפת כטב"מים</title>
       <link>https://13tv.co.il/item/news/abroad/ii9n6-905369086/</link>
       <guid isPermaLink="false">h6clqx</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>ההתפקדות לליכוד ביבנאל - והמתקפה של בנט: "מכשירים כת של אנסים, שחיתות על גבי שחיתות"</title>
       <link>https://13tv.co.il/item/news/politics/politics/frvuw-905369055/</link>
       <guid isPermaLink="false">aep2ty</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>ועדת הבחירות דחתה את הבקשה לפסול את מפלגת הדמוקרטים</title>
       <link>https://13tv.co.il/item/news/politics/politics/elections-2-905368603</link>
       <guid isPermaLink="false">1hlgomt</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>מח"ש: שלושה שוטרי מג"ב חשודים שגנבו רכב במהלך סיור ופגעו במכוניות</title>
       <link>https://13tv.co.il/item/news/domestic/crime-and-justice/oklsk-905369013/</link>
       <guid isPermaLink="false">1fdzd5t</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>נדחתה בקשת הפסילה של מפלגת הציונות הדתית: "לא הונחה תשתית ראייתית"</title>
       <link>https://13tv.co.il/item/news/politics/politics/elections-2-905368603/</link>
       <guid isPermaLink="false">17rtc0f</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>מקור ישראלי לערוץ סעודי: "סבב תקיפות נוסף באיראן - עניין של זמן"</title>
       <link>https://13tv.co.il/item/news/politics/security/iran-5-905368811/</link>
       <guid isPermaLink="false">1tdqj2g</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>בשעת לילה, לעיני המצלמות: מתנחלים הציתו רכב בדרום הר חברון; כתובות נקם רוססו בשומרון</title>
       <link>https://13tv.co.il/item/news/politics/security/np6r4-905368760/</link>
       <guid isPermaLink="false">1g9o0xj</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>השגריר לייטר שבנו נפצע בפיגוע בהצהרה מביה"ח: "אנחנו מלאי תקווה שנצא מזה והוא יחזור אלינו בריא ושלם"</title>
       <link>https://13tv.co.il/item/news/politics/security/wvh8u-905368181/</link>
       <guid isPermaLink="false">pnissm</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
     <item>
       <title>העיתונאי מנשה רז הלך לעולמו בגיל 80</title>
       <link>https://13tv.co.il/item/news/domestic/internal/menashe-raz-905368328/</link>
       <guid isPermaLink="false">27pgzw</guid>
-    </item>
-    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::JsonState (25))</generator>
-    <ttl>3</ttl>
-    <dc:date>2026-09-25T10:38:15.389397+00:00</dc:date>
-  </channel>
+    <pubDate>Fri, 25 Sep 2026 10:58:05 GMT</pubDate></item>
+    </channel>
 </rss>

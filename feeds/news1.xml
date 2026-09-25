@@ -1,48 +1,47 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>News1 מחלקה ראשונה</title>
     <link>https://www.news1.co.il/ExchangeNames.html</link>
-    <description>News1.co.il - חדשות, פוליטיקה, כלכלה וספורט</description>
+    <atom:link href="https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml" rel="self" type="application/rss+xml" /><description>News1.co.il - חדשות, פוליטיקה, כלכלה וספורט</description>
     <language>he</language>
     <pubDate>Fri, 25 Sep 2026 09:00:04 -0000</pubDate>
+    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::SemanticHtml (7))</generator>
+    <ttl>5</ttl>
     <item>
       <title>עמנואל בן-סבו</title>
       <link>https://www.news1.co.il/blog/IMANUELBENSABO</link>
       <guid isPermaLink="false">xbv8iw</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
     <item>
       <title>דליה הקר-אוריון</title>
       <link>https://www.news1.co.il/blog/dalia%20haker-oriun</link>
       <guid isPermaLink="false">1nffc15</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
     <item>
       <title>יהונתן דחוח הלוי</title>
       <link>https://www.news1.co.il/blog/jdhalevi</link>
       <guid isPermaLink="false">zp5ahi</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
     <item>
       <title>לרשימת הכותבים ב-News1</title>
       <link>https://www.news1.co.il/Home/ShowWriters.html</link>
       <guid isPermaLink="false">1hepz5a</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
     <item>
       <title>אסונות / פגעי טבע</title>
       <link>https://www.news1.co.il/Home/L02-S-00117-00.html</link>
       <guid isPermaLink="false">ylfm5j</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
     <item>
       <title>עו"סים שינוי</title>
       <link>https://www.news1.co.il/Home/L02-S-00540-00.html</link>
       <guid isPermaLink="false">co2g7p</guid>
-    </item>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
     <item>
       <title>מערכת -[email protected]</title>
       <link>https://www.news1.co.il/cdn-cgi/l/email-protection</link>
       <guid isPermaLink="false">1czh3el</guid>
-    </item>
-    <generator>html2rss V. 0.30.0 (scrapers: AutoSource::SemanticHtml (7))</generator>
-    <ttl>5</ttl>
-    <dc:date>2026-09-25T09:00:04Z</dc:date>
-  </channel>
+    <pubDate>Fri, 25 Sep 2026 10:58:32 GMT</pubDate></item>
+    </channel>
 </rss>
