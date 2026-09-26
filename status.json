@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26 18:40 UTC",
+  "generated_at": "2026-09-26 21:43 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -28,7 +28,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 25,
+      "items": 24,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/kan11.xml"
     },
     {
@@ -38,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 3,
+      "items": 4,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -163,7 +163,7 @@
       "lang": "he",
       "category": "finance",
       "status": "ok",
-      "items": 7,
+      "items": 6,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist-tech.xml"
     },
     {
