@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26 01:09 UTC",
+  "generated_at": "2026-09-26 06:16 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -28,7 +28,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 17,
+      "items": 21,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/kan11.xml"
     },
     {
@@ -47,8 +47,9 @@
       "url": "https://www.news1.co.il",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::RequestTimedOut error), botasaurus (Html2rss::RequestService::RequestTimedOut error). Try a more specific listing URL or provide explicit selectors."
+      "status": "ok",
+      "items": 7,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
     },
     {
       "slug": "nfc",
@@ -218,7 +219,7 @@
       "lang": "he",
       "category": "religion",
       "status": "ok",
-      "items": 2,
+      "items": 9,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/yeshiva.xml"
     },
     {
@@ -270,6 +271,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 15,
+  "ok_count": 16,
   "total": 28
 }
