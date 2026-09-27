@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27 00:03 UTC",
+  "generated_at": "2026-09-27 05:29 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -17,9 +17,8 @@
       "url": "https://13tv.co.il",
       "lang": "he",
       "category": "news",
-      "status": "ok",
-      "items": 25,
-      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/reshet13.xml"
+      "status": "failed",
+      "reason": "html2rss timed out (120s)"
     },
     {
       "slug": "kan11",
@@ -38,7 +37,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 4,
+      "items": 3,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -87,7 +86,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
+      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request strategy."
     },
     {
       "slug": "zman",
@@ -163,7 +162,7 @@
       "lang": "he",
       "category": "finance",
       "status": "ok",
-      "items": 6,
+      "items": 7,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist-tech.xml"
     },
     {
@@ -271,6 +270,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 16,
+  "ok_count": 15,
   "total": 28
 }
