@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27 19:09 UTC",
+  "generated_at": "2026-09-27 22:24 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -17,8 +17,9 @@
       "url": "https://13tv.co.il",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "html2rss timed out (120s)"
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/reshet13.xml"
     },
     {
       "slug": "kan11",
@@ -37,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 4,
+      "items": 3,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -66,7 +67,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 24,
+      "items": 23,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
@@ -86,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request strategy."
+      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
     },
     {
       "slug": "zman",
@@ -270,6 +271,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 15,
+  "ok_count": 16,
   "total": 28
 }
