@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28 06:20 UTC",
+  "generated_at": "2026-09-28 14:16 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -17,8 +17,9 @@
       "url": "https://13tv.co.il",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "html2rss timed out (120s)"
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/reshet13.xml"
     },
     {
       "slug": "kan11",
@@ -36,9 +37,8 @@
       "url": "https://www.i24news.tv/he",
       "lang": "he",
       "category": "news",
-      "status": "ok",
-      "items": 3,
-      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. app-shell surface detected (client-rendered page with little or no server-render"
     },
     {
       "slug": "news1",
@@ -86,7 +86,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request strategy."
+      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
     },
     {
       "slug": "zman",
@@ -141,9 +141,8 @@
       "url": "https://basket.co.il",
       "lang": "he",
       "category": "sports",
-      "status": "ok",
-      "items": 1,
-      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/basket.xml"
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. high-entropy surface (e.g. news homepage) with few or no durable article destina"
     },
     {
       "slug": "calcalist",
@@ -218,7 +217,7 @@
       "lang": "he",
       "category": "religion",
       "status": "ok",
-      "items": 25,
+      "items": 9,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/yeshiva.xml"
     },
     {
@@ -270,6 +269,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 15,
+  "ok_count": 14,
   "total": 28
 }
