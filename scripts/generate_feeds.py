@@ -21,7 +21,7 @@ import urllib.robotparser
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from feedlib import jsonfeed_to_rss, strip_item_content, validate_feed_bytes  # noqa: E402
+from feedlib import jsonfeed_to_rss, preserve_item_dates, strip_item_content, validate_feed_bytes  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.environ.get('OUT_DIR', os.path.join(ROOT, 'out'))
@@ -173,7 +173,11 @@ def main():
                  'lang': site.get('lang', 'he'), 'category': site.get('category', 'news'),
                  **res}
         if xml_bytes is not None:
-            with open(os.path.join(feeds_dir, f"{site['slug']}.xml"), 'wb') as f:
+            feed_path = os.path.join(feeds_dir, f"{site['slug']}.xml")
+            if os.path.isfile(feed_path):
+                with open(feed_path, 'rb') as previous:
+                    xml_bytes = preserve_item_dates(xml_bytes, previous.read())
+            with open(feed_path, 'wb') as f:
                 f.write(xml_bytes)
             entry['feed'] = f'{base_url}/feeds/{site["slug"]}.xml'
             ok_count += 1

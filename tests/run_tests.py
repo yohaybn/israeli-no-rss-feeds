@@ -5,7 +5,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
-from feedlib import (jsonfeed_to_rss, strip_item_content,  # noqa: E402
+from feedlib import (jsonfeed_to_rss, preserve_item_dates, strip_item_content,  # noqa: E402
                      validate_feed_bytes)
 import validate_feeds  # noqa: E402
 
@@ -92,6 +92,26 @@ def main():
     check('jsonfeed teaser capped', b'a' * 600 not in built and b'aaa' in built)
     check('built feed validates', validate_feed_bytes(built) == [])
     check('jsonfeed empty items raises', _raises(jf_empty))
+    # A listing scraped again must not make old articles look freshly published.
+    old = b'''<rss><channel><item><title>Old title</title><link>https://x.co.il/1</link>
+    <pubDate>Fri, 25 Sep 2026 09:00:00 GMT</pubDate></item></channel></rss>'''
+    new = b'''<rss><channel>
+    <item><title>Updated title</title><link>https://x.co.il/1#section</link>
+    <pubDate>Tue, 29 Sep 2026 09:00:00 GMT</pubDate></item>
+    <item><title>New story</title><link>https://x.co.il/2</link>
+    <pubDate>Tue, 29 Sep 2026 09:00:00 GMT</pubDate></item>
+    </channel></rss>'''
+    import xml.etree.ElementTree as ET
+    stable = ET.fromstring(preserve_item_dates(new, old)).findall('./channel/item')
+    check('old URL retains original timestamp despite updated title and fragment',
+          stable[0].findtext('pubDate') == 'Fri, 25 Sep 2026 09:00:00 GMT')
+    check('new URL retains first observed timestamp',
+          stable[1].findtext('pubDate') == 'Tue, 29 Sep 2026 09:00:00 GMT')
+    check('bad prior XML leaves new feed unchanged', preserve_item_dates(new, b'broken') == new)
+    check('unrelated prior XML leaves new feed unchanged', preserve_item_dates(new, b'<foo/>') == new)
+    check('stable second run is idempotent', preserve_item_dates(preserve_item_dates(new, old), old)
+          == preserve_item_dates(new, old))
+
 
     sites_problems = validate_feeds.validate_sites(os.path.join(ROOT, 'sites.json'))
     check('repo sites.json valid', sites_problems == [])
