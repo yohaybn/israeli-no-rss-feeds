@@ -9,6 +9,8 @@ import html
 import json
 import re
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
+from urllib.parse import urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
 
 CONTENT_NS = 'http://purl.org/rss/1.0/modules/content/'
@@ -79,6 +81,62 @@ def _add_enclosure(item_el, image_url):
     enc.set('url', image_url)
     enc.set('type', _image_type(image_url))
     enc.set('length', '0')
+
+
+def _item_key(url):
+    """Stable article identity across generated feeds; ignore fragments."""
+    if not url:
+        return ''
+    parts = urlsplit(url.strip())
+    if parts.scheme not in ('http', 'https') or not parts.netloc:
+        return ''
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip('/') or '/', parts.query, ''))
+
+
+def prior_item_dates(previous_xml):
+    """Read prior published item dates by article URL. Malformed input is ignored."""
+    if not previous_xml:
+        return {}
+    try:
+        root = ET.fromstring(previous_xml)
+    except ET.ParseError:
+        return {}
+    if root.tag != 'rss':
+        return {}
+    dates = {}
+    for item in root.findall('./channel/item'):
+        key = _item_key(item.findtext('link'))
+        text = item.findtext('pubDate')
+        if not key or not text:
+            continue
+        try:
+            date = parsedate_to_datetime(text)
+        except (ValueError, TypeError, IndexError):
+            continue
+        if date.tzinfo is None:
+            continue
+        dates[key] = _rfc822(date.astimezone(timezone.utc))
+    return dates
+
+
+def preserve_item_dates(new_xml, previous_xml):
+    """Keep dates stable for recurring article URLs; source dates still win on first sighting.
+
+    There is no reliable way to tell whether a newly scraped date is a source publication
+    date or html2rss's current scan time, so preserve a previous feed date for a known URL.
+    """
+    prior = prior_item_dates(previous_xml)
+    if not prior:
+        return new_xml
+    root = ET.fromstring(new_xml)
+    changed = False
+    for item in root.findall('./channel/item'):
+        date = prior.get(_item_key(item.findtext('link')))
+        pub = item.find('pubDate')
+        if date and pub is not None and pub.text != date:
+            pub.text = date
+            changed = True
+    return ET.tostring(root, encoding='UTF-8', xml_declaration=True) if changed else new_xml
 
 
 def jsonfeed_to_rss(payload, site_name=None, site_url=None, lang=None, feed_url=None, now=None):
