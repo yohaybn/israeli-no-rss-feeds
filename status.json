@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29 22:46 UTC",
+  "generated_at": "2026-09-30 01:45 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -47,8 +47,9 @@
       "url": "https://www.news1.co.il",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::RequestTimedOut error), botasaurus (Html2rss::RequestService::RequestTimedOut error). Try a more specific listing URL or provide explicit selectors."
+      "status": "ok",
+      "items": 7,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
     },
     {
       "slug": "nfc",
@@ -86,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
     },
     {
       "slug": "zman",
@@ -269,6 +270,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
     }
   ],
-  "ok_count": 14,
+  "ok_count": 15,
   "total": 28
 }
