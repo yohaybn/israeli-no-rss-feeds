@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30 01:45 UTC",
+  "generated_at": "2026-09-30 07:42 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -38,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 3,
+      "items": 2,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -218,7 +218,7 @@
       "lang": "he",
       "category": "religion",
       "status": "ok",
-      "items": 9,
+      "items": 10,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/yeshiva.xml"
     },
     {
