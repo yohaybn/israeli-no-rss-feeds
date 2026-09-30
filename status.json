@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30 19:32 UTC",
+  "generated_at": "2026-09-30 19:55 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -38,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 3,
+      "items": 4,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -47,8 +47,9 @@
       "url": "https://www.news1.co.il",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::BlockedSurfaceDetected error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL "
+      "status": "ok",
+      "items": 7,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
     },
     {
       "slug": "nfc",
@@ -66,7 +67,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 16,
+      "items": 15,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
@@ -293,8 +294,9 @@
       "url": "https://tech-il.co.il/",
       "lang": "he",
       "category": "tech",
-      "status": "skipped",
-      "reason": "WordPress REST unavailable/disabled or invalid: Expecting value: line 1 column 1 (char 0)"
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/tech-il.xml"
     },
     {
       "slug": "newsgeek",
@@ -307,6 +309,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/newsgeek.xml"
     }
   ],
-  "ok_count": 16,
+  "ok_count": 18,
   "total": 32
 }
