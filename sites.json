@@ -197,6 +197,38 @@
       "url": "https://103fm.maariv.co.il",
       "lang": "he",
       "category": "radio"
+    },
+    {
+      "slug": "letsai",
+      "name": "Let's AI - להבין את הבינה",
+      "url": "https://letsai.co.il/",
+      "lang": "he",
+      "category": "ai",
+      "generator": "wordpress"
+    },
+    {
+      "slug": "theverifier",
+      "name": "The Verifier",
+      "url": "https://theverifier.co.il/",
+      "generator": "wordpress",
+      "lang": "he",
+      "category": "tech"
+    },
+    {
+      "slug": "tech-il",
+      "name": "Tech-il",
+      "url": "https://tech-il.co.il/",
+      "generator": "wordpress",
+      "lang": "he",
+      "category": "tech"
+    },
+    {
+      "slug": "newsgeek",
+      "name": "Newsgeek - מגזין חדשות וצרכנות",
+      "url": "https://newsgeek.co.il/",
+      "generator": "wordpress",
+      "lang": "he",
+      "category": "news"
     }
   ]
 }

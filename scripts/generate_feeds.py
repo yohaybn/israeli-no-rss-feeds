@@ -12,6 +12,7 @@ published feed (the workflow clones gh-pages into out/ before running).
 Exits non-zero only when every site failed.
 """
 import json
+import html
 import os
 import subprocess
 import sys
@@ -21,6 +22,7 @@ import urllib.robotparser
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wordpress_feed import endpoint as wordpress_endpoint, posts_to_rss
 from feedlib import jsonfeed_to_rss, preserve_item_dates, strip_item_content, validate_feed_bytes  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,6 +76,22 @@ def generate_site(site, feed_url=None):
     allowed, reason = robots_allows(url)
     if not allowed:
         return {'status': 'skipped', 'reason': reason}, None
+    if site.get('generator') == 'wordpress' or site.get('wordpress_api'):
+        try:
+            api = wordpress_endpoint(site)
+            allowed, reason = robots_allows(api)
+            if not allowed:
+                return {'status': 'skipped', 'reason': reason}, None
+            request = urllib.request.Request(api, headers={'User-Agent': UA})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                posts = json.load(response)
+            cleaned, count = posts_to_rss(posts, site, feed_url)
+            problems = validate_feed_bytes(cleaned)
+            if problems:
+                raise ValueError('; '.join(problems[:3]))
+            return {'status': 'ok', 'items': count}, cleaned
+        except Exception as error:
+            return {'status': 'skipped', 'reason': 'WordPress REST unavailable/disabled or invalid: ' + str(error)[:250]}, None
     try:
         proc = _scrape(url, ['--format', 'jsonfeed'])
     except subprocess.TimeoutExpired:
@@ -114,7 +132,7 @@ def write_index_html(status, base_url):
             stat = f"✅ {s.get('items', 0)} פריטים"
             feed = f'<a href="feeds/{s["slug"]}.xml">feeds/{s["slug"]}.xml</a>'
         elif s['status'] == 'skipped':
-            stat = '⏭️ נדחה ע"י robots.txt'
+            stat = '⏭️ ' + html.escape(s.get('reason', 'skipped')[:120])
             feed = ''
         else:
             stat = f'❌ {s.get("reason", "")[:80]}'

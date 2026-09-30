@@ -79,3 +79,20 @@ RSS feeds for leading Israeli sites that don't have one - without a per-site scr
 **Legality & politeness:** no article-content republication (full bodies blocked, enforced in CI; only the site's own short listing teaser and thumbnail), robots.txt respected, one request per site every 30 minutes, sequential with delays, public pages only. Not legal advice; sites asking to be removed will be removed.
 
 MIT license.
+
+## WordPress REST sources
+
+For WordPress publishers without usable RSS, add a domain entry to `sites.json` with `"generator": "wordpress"` (plus slug, name, HTTPS URL, language and category). Each entry gets its own feed. The endpoint is derived automatically from the domain: `/wp-json/wp/v2/posts`. An optional same-host `wordpress_api` remains supported for existing configs.
+
+Before enabling/publishing a site, the generator checks robots and requires a non-empty, valid WordPress posts JSON response with publisher IDs, UTC dates, same-host links and rendered titles. Disabled REST APIs, HTTP failures, HTML responses and malformed JSON are skipped with a clear per-site log/status reason. Other sites continue and last-good XML stays untouched. Requests include only the latest 25 IDs, UTC dates, links, headlines and excerpts, never full bodies. Refresh remains every 30 minutes through the existing Actions/Pages pipeline.
+
+Verified WordPress list (2026-09-30):
+
+| Site | Native RSS status | REST status |
+| --- | --- | --- |
+| LetsAI (`letsai.co.il`) | `/feed/`, `?feed=rss2` and RSS aliases redirect to homepage HTML; robots also blocks feeds | Valid posts, latest Sep 30 |
+| TECH-IL (`tech-il.co.il`) | `/feed/` and `?feed=rss2` redirect to homepage HTML | Valid posts, latest Sep 29 |
+| The Verifier (`theverifier.co.il`) | Advertises RSS, but XML currently fails parsing due to duplicate `xmlns:media` attribute | Valid posts, latest Sep 28 |
+| Newsgeek (`newsgeek.co.il`) | `/feed/` and `?feed=rss2` redirect to homepage HTML | Valid posts, latest Sep 30; consumer/news blog, not Geektime |
+
+The Verifier has a broken RSS feed, not no RSS at all. If its publisher repairs that feed, prefer the native feed. Sites already serving valid RSS (including Geektime, TGspot, GadgetSite, HWzone, HTMag, GameTech, Y4PC, G-Rafa and TechZ) are not duplicated. Unreachable or API-blocked sites are not enabled based on guesses. Utechnet had a usable REST API but no posts newer than February 2025, so it was not added to this current-news list.
