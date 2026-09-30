@@ -6,10 +6,10 @@ from feedlib import html_to_teaser, jsonfeed_to_rss
 
 
 def endpoint(site):
-    source = site['wordpress_api']
+    source = site.get('wordpress_api') or site['url'].rstrip('/') + '/wp-json/wp/v2/posts'
     home = urlsplit(site['url'])
     parsed = urlsplit(source)
-    if parsed.scheme != 'https' or parsed.netloc != home.netloc:
+    if parsed.scheme != 'https' or parsed.netloc != home.netloc or parsed.query or parsed.fragment or parsed.path.rstrip('/') != '/wp-json/wp/v2/posts':
         raise ValueError('WordPress API must be HTTPS on the site hostname')
     return source + '?' + urlencode({
         'per_page': 25, 'orderby': 'date', 'order': 'desc',
@@ -17,11 +17,15 @@ def endpoint(site):
 
 
 def posts_to_rss(posts, site, feed_url=None):
-    if not isinstance(posts, list):
-        raise ValueError('WordPress posts response must be a list')
+    if not isinstance(posts, list) or not posts:
+        raise ValueError('WordPress REST unavailable or disabled: expected non-empty posts list')
     home = urlsplit(site['url'])
     items = []
     for post in posts[:25]:
+        if not isinstance(post, dict) or not isinstance(post.get('title'), dict) or not isinstance(post['title'].get('rendered'), str) or not post['title']['rendered'].strip():
+            raise ValueError('Not valid WordPress post JSON: missing rendered title')
+        if not isinstance(post.get('date_gmt'), str):
+            raise ValueError('Not valid WordPress post JSON: missing UTC date')
         link = post.get('link', '')
         if urlsplit(link).netloc != home.netloc or not link.startswith('https://'):
             raise ValueError('Post link outside publisher hostname')

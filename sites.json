@@ -202,9 +202,33 @@
       "slug": "letsai",
       "name": "Let's AI - להבין את הבינה",
       "url": "https://letsai.co.il/",
-      "wordpress_api": "https://letsai.co.il/wp-json/wp/v2/posts",
       "lang": "he",
-      "category": "ai"
+      "category": "ai",
+      "generator": "wordpress"
+    },
+    {
+      "slug": "theverifier",
+      "name": "The Verifier",
+      "url": "https://theverifier.co.il/",
+      "generator": "wordpress",
+      "lang": "he",
+      "category": "tech"
+    },
+    {
+      "slug": "tech-il",
+      "name": "Tech-il",
+      "url": "https://tech-il.co.il/",
+      "generator": "wordpress",
+      "lang": "he",
+      "category": "tech"
+    },
+    {
+      "slug": "newsgeek",
+      "name": "Newsgeek - מגזין חדשות וצרכנות",
+      "url": "https://newsgeek.co.il/",
+      "generator": "wordpress",
+      "lang": "he",
+      "category": "news"
     }
   ]
 }

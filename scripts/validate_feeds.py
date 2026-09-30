@@ -42,7 +42,9 @@ def validate_sites(path):
         url = s.get('url', '')
         if not url.startswith('https://'):
             problems.append(f'sites[{i}] ({slug}): url must start with https://')
-        if s.get('wordpress_api'):
+        if s.get('generator') not in (None, 'wordpress'):
+            problems.append(f'sites[{i}] ({slug}): unknown generator')
+        if s.get('generator') == 'wordpress' or s.get('wordpress_api'):
             from wordpress_feed import endpoint
             try:
                 endpoint(s)
