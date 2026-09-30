@@ -76,6 +76,38 @@ def generate_site(site, feed_url=None):
     allowed, reason = robots_allows(url)
     if not allowed:
         return {'status': 'skipped', 'reason': reason}, None
+    if site.get('generator') == 'calcalist':
+        try:
+            from calcalist_feed import listing_to_rss, widget_data, json_listing_html
+            request = urllib.request.Request(url, headers={'User-Agent': UA})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                payload = response.read()
+            special = site.get('calcalist_listing')
+            if special:
+                if special == 'allnews':
+                    today = datetime.now(__import__('zoneinfo').ZoneInfo('Asia/Jerusalem')).strftime('%Y-%m-%d')
+                    source = 'https://www.calcalist.co.il/iphone/json/api/twenty_four_seven_wide/1/50/1/0/0/' + today
+                elif special == 'buzz':
+                    config = widget_data(payload, 'SiteCtechWideBuzzComponenta')
+                    source = 'https://www.calcalist.co.il/iphone/json/api/calcalist_buzz_wide/' + config['componentaId'] + '/1/1/0/0/0'
+                elif special == 'tv':
+                    config = widget_data(payload, 'SiteVideoArchiveComponenta')
+                    today = datetime.now(__import__('zoneinfo').ZoneInfo('Asia/Jerusalem')).strftime('%Y-%m-%d')
+                    source = 'https://www.calcalist.co.il/iphone/json/api/article_list/' + config['componentaId'] + '/id/1/startDate/1992-04-01/endDate/' + today + '/pageNumber/0'
+                else:
+                    raise ValueError('Unknown Calcalist listing')
+                allowed, reason = robots_allows(source)
+                if not allowed:
+                    return {'status': 'skipped', 'reason': reason}, None
+                with urllib.request.urlopen(urllib.request.Request(source, headers={'User-Agent': UA}), timeout=30) as response:
+                    payload = json_listing_html(json.load(response))
+            cleaned, count = listing_to_rss(payload, site, feed_url)
+            problems = validate_feed_bytes(cleaned)
+            if problems:
+                raise ValueError('; '.join(problems[:3]))
+            return {'status': 'ok', 'items': count}, cleaned
+        except Exception as error:
+            return {'status': 'failed', 'reason': 'Calcalist listing unavailable/invalid: ' + str(error)[:250]}, None
     if site.get('generator') == 'wordpress' or site.get('wordpress_api'):
         try:
             api = wordpress_endpoint(site)

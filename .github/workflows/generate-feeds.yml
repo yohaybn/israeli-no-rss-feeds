@@ -40,6 +40,9 @@ jobs:
             "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" out \
             2>/dev/null || echo "no gh-pages branch yet (first run)"
 
+      - name: Install public-listing parser
+        run: python3 -m pip install beautifulsoup4==4.14.3
+
       - name: Generate feeds
         env:
           FEEDS_BASE_URL: https://yohaybn.github.io/israeli-no-rss-feeds

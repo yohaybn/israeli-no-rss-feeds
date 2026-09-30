@@ -96,3 +96,16 @@ Verified WordPress list (2026-09-30):
 | Newsgeek (`newsgeek.co.il`) | `/feed/` and `?feed=rss2` redirect to homepage HTML | Valid posts, latest Sep 30; consumer/news blog, not Geektime |
 
 The Verifier has a broken RSS feed, not no RSS at all. If its publisher repairs that feed, prefer the native feed. Sites already serving valid RSS (including Geektime, TGspot, GadgetSite, HWzone, HTMag, GameTech, Y4PC, G-Rafa and TechZ) are not duplicated. Unreachable or API-blocked sites are not enabled based on guesses. Utechnet had a usable REST API but no posts newer than February 2025, so it was not added to this current-news list.
+
+## Calcalist category feeds
+
+Calcalist's current public navigation and section submenus are mapped in sites.json.
+The `calcalist` adapter reads only public category listing metadata (headline,
+permalink, short teaser, publication date and image), including the JSON already
+embedded in category pages. It never fetches article bodies or unlocks premium text.
+24/7, Buzz and TV use the same public listing endpoints used by those pages.
+All configured categories are refreshed by the existing 30-minute Actions schedule.
+Temporary failures preserve previously published XML. New categories introduced by
+the publisher need a sites.json/catalog update; navigation discovery is not repeated
+on every run. Financial quote tables, contact/legal pages and external course stores
+are not article categories and are not turned into feeds.
