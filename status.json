@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30 14:25 UTC",
+  "generated_at": "2026-09-30 14:55 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -67,7 +67,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 20,
+      "items": 19,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
@@ -268,8 +268,47 @@
       "status": "ok",
       "items": 13,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/fm103.xml"
+    },
+    {
+      "slug": "letsai",
+      "name": "Let's AI - להבין את הבינה",
+      "url": "https://letsai.co.il/",
+      "lang": "he",
+      "category": "ai",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/letsai.xml"
+    },
+    {
+      "slug": "theverifier",
+      "name": "The Verifier",
+      "url": "https://theverifier.co.il/",
+      "lang": "he",
+      "category": "tech",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/theverifier.xml"
+    },
+    {
+      "slug": "tech-il",
+      "name": "Tech-il",
+      "url": "https://tech-il.co.il/",
+      "lang": "he",
+      "category": "tech",
+      "status": "skipped",
+      "reason": "WordPress REST unavailable/disabled or invalid: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "slug": "newsgeek",
+      "name": "Newsgeek - מגזין חדשות וצרכנות",
+      "url": "https://newsgeek.co.il/",
+      "lang": "he",
+      "category": "news",
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/newsgeek.xml"
     }
   ],
-  "ok_count": 15,
-  "total": 28
+  "ok_count": 18,
+  "total": 32
 }
