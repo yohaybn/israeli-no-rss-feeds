@@ -52,7 +52,7 @@ def listing_to_rss(payload, site, feed_url=None):
     seen = set()
     for article in embedded:
         link = article.get('publishedLink', '')
-        if not ((urlsplit(link).hostname == 'www.calcalist.co.il' and any(p in urlsplit(link).path for p in ['/article/', '/articles/'])) or
+        if not ((urlsplit(link).scheme == 'https' and urlsplit(link).hostname == 'www.calcalist.co.il' and any(p in urlsplit(link).path for p in ['/article/', '/articles/'])) or
                 (site['url'].endswith('/supplement') and urlsplit(link).hostname == 'musafim.webflow.io' and link.startswith('https://'))):
             continue
         if link in seen or not article.get('title'):
