@@ -42,8 +42,10 @@ def validate_sites(path):
         url = s.get('url', '')
         if not url.startswith('https://'):
             problems.append(f'sites[{i}] ({slug}): url must start with https://')
-        if s.get('generator') not in (None, 'wordpress'):
+        if s.get('generator') not in (None, 'wordpress', 'calcalist'):
             problems.append(f'sites[{i}] ({slug}): unknown generator')
+        if s.get('generator') == 'calcalist' and not url.startswith('https://www.calcalist.co.il/'):
+            problems.append(f'sites[{i}] ({slug}): Calcalist generator requires publisher hostname')
         if s.get('generator') == 'wordpress' or s.get('wordpress_api'):
             from wordpress_feed import endpoint
             try:

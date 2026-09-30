@@ -108,20 +108,6 @@
       "category": "sports"
     },
     {
-      "slug": "calcalist",
-      "name": "כלכליסט",
-      "url": "https://www.calcalist.co.il",
-      "lang": "he",
-      "category": "finance"
-    },
-    {
-      "slug": "calcalist-tech",
-      "name": "כלכליסט - טכנולוגיה",
-      "url": "https://www.calcalist.co.il/calcalistech",
-      "lang": "he",
-      "category": "finance"
-    },
-    {
       "slug": "bizportal",
       "name": "ביזפורטל",
       "url": "https://www.bizportal.co.il",
@@ -229,6 +215,112 @@
       "generator": "wordpress",
       "lang": "he",
       "category": "news"
+    },
+    {
+      "slug": "calcalist-market",
+      "name": "כלכליסט - שוק ההון",
+      "url": "https://www.calcalist.co.il/market",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-calcalistech",
+      "name": "כלכליסט - כלכליסט-טק",
+      "url": "https://www.calcalist.co.il/calcalistech",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-local-news",
+      "name": "כלכליסט - בארץ",
+      "url": "https://www.calcalist.co.il/local_news",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-real-estate",
+      "name": "כלכליסט - נדלניסט",
+      "url": "https://www.calcalist.co.il/real-estate",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-world-news",
+      "name": "כלכליסט - עולם",
+      "url": "https://www.calcalist.co.il/world_news",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-3772",
+      "name": "כלכליסט - משפט",
+      "url": "https://www.calcalist.co.il/local_news/category/3772",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-car",
+      "name": "כלכליסט - רכב",
+      "url": "https://www.calcalist.co.il/local_news/car",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-style",
+      "name": "כלכליסט - פנאי",
+      "url": "https://www.calcalist.co.il/style",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-supplement",
+      "name": "כלכליסט - מוסף",
+      "url": "https://www.calcalist.co.il/supplement",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-5494",
+      "name": "כלכליסט - Duns 100",
+      "url": "https://www.calcalist.co.il/local_news/category/5494",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-home",
+      "name": "כלכליסט - דף הבית",
+      "url": "https://www.calcalist.co.il/",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist"
+    },
+    {
+      "slug": "calcalist-allnews",
+      "name": "כלכליסט - 24/7",
+      "url": "https://www.calcalist.co.il/allnews",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist",
+      "calcalist_listing": "allnews"
+    },
+    {
+      "slug": "calcalist-buzz",
+      "name": "כלכליסט - באזז",
+      "url": "https://www.calcalist.co.il/buzz",
+      "lang": "he",
+      "category": "economy",
+      "generator": "calcalist",
+      "calcalist_listing": "buzz"
     }
   ]
 }
