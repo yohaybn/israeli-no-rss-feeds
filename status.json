@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30 19:09 UTC",
+  "generated_at": "2026-09-30 19:32 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -47,9 +47,8 @@
       "url": "https://www.news1.co.il",
       "lang": "he",
       "category": "news",
-      "status": "ok",
-      "items": 7,
-      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
+      "status": "failed",
+      "reason": "No feed items extracted after auto fallback across strategies: default (Html2rss::RequestService::BlockedSurfaceDetected error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL "
     },
     {
       "slug": "nfc",
@@ -87,7 +86,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
+      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request strategy."
     },
     {
       "slug": "zman",
@@ -308,6 +307,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/newsgeek.xml"
     }
   ],
-  "ok_count": 17,
+  "ok_count": 16,
   "total": 32
 }
