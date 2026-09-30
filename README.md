@@ -99,13 +99,13 @@ The Verifier has a broken RSS feed, not no RSS at all. If its publisher repairs 
 
 ## Calcalist category feeds
 
-Calcalist's current public navigation and section submenus are mapped in sites.json.
+Only Calcalist's 13 main categories are enabled in sites.json, matching the recommendation catalog. Subcategories are not generated or published.
 The `calcalist` adapter reads only public category listing metadata (headline,
 permalink, short teaser, publication date and image), including the JSON already
 embedded in category pages. It never fetches article bodies or unlocks premium text.
-24/7, Buzz and TV use the same public listing endpoints used by those pages.
+24/7 and Buzz use the same public listing endpoints used by those pages.
 All configured categories are refreshed by the existing 30-minute Actions schedule.
-Temporary failures preserve previously published XML. New categories introduced by
+Temporary failures preserve previously published XML for active feeds. Retired Calcalist files are removed from publication on the next generator run. New categories introduced by
 the publisher need a sites.json/catalog update; navigation discovery is not repeated
 on every run. Financial quote tables, contact/legal pages and external course stores
 are not article categories and are not turned into feeds.

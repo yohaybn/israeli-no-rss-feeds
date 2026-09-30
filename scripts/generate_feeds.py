@@ -205,11 +205,24 @@ code {{ background: #f4f4f4; padding: 1px 4px; }}
 """
 
 
+def prune_unconfigured_calcalist(feeds_dir, sites):
+    """Remove retired Calcalist files only, retaining last-good active feeds."""
+    keep = {site['slug'] + '.xml' for site in sites}
+    removed = []
+    for filename in os.listdir(feeds_dir):
+        if filename.startswith('calcalist') and filename.endswith('.xml') and filename not in keep:
+            os.remove(os.path.join(feeds_dir, filename))
+            removed.append(filename)
+    return removed
+
+
 def main():
     with open(os.path.join(ROOT, 'sites.json'), encoding='utf-8') as f:
         sites = json.load(f)['sites']
     feeds_dir = os.path.join(OUT, 'feeds')
     os.makedirs(feeds_dir, exist_ok=True)
+    for filename in prune_unconfigured_calcalist(feeds_dir, sites):
+        print(f'Removed retired Calcalist feed: {filename}', flush=True)
 
     base_url = os.environ.get('FEEDS_BASE_URL', 'https://yohaybn.github.io/israeli-no-rss-feeds')
     status = {'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
