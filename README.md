@@ -79,3 +79,7 @@ RSS feeds for leading Israeli sites that don't have one - without a per-site scr
 **Legality & politeness:** no article-content republication (full bodies blocked, enforced in CI; only the site's own short listing teaser and thumbnail), robots.txt respected, one request per site every 30 minutes, sequential with delays, public pages only. Not legal advice; sites asking to be removed will be removed.
 
 MIT license.
+
+## WordPress REST sources
+
+For a publisher with RSS disabled but a public WordPress posts endpoint, a site may set `wordpress_api` to its same-host HTTPS `/wp-json/wp/v2/posts` endpoint. The generator requests only ID, UTC publication date, link, headline and excerpt for the latest 25 posts. No full article body is requested or republished. Publisher dates and IDs are retained. LetsAI uses this path because its old `/feed/` redirects to HTML. It refreshes in the existing 30-minute generator, preserving last-good output on errors and checking robots for the public API.

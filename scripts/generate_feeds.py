@@ -21,6 +21,7 @@ import urllib.robotparser
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wordpress_feed import endpoint as wordpress_endpoint, posts_to_rss
 from feedlib import jsonfeed_to_rss, preserve_item_dates, strip_item_content, validate_feed_bytes  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -74,6 +75,22 @@ def generate_site(site, feed_url=None):
     allowed, reason = robots_allows(url)
     if not allowed:
         return {'status': 'skipped', 'reason': reason}, None
+    if site.get('wordpress_api'):
+        try:
+            api = wordpress_endpoint(site)
+            allowed, reason = robots_allows(api)
+            if not allowed:
+                return {'status': 'skipped', 'reason': reason}, None
+            request = urllib.request.Request(api, headers={'User-Agent': UA})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                posts = json.load(response)
+            cleaned, count = posts_to_rss(posts, site, feed_url)
+            problems = validate_feed_bytes(cleaned)
+            if problems:
+                raise ValueError('; '.join(problems[:3]))
+            return {'status': 'ok', 'items': count}, cleaned
+        except Exception as error:
+            return {'status': 'failed', 'reason': 'WordPress REST: ' + str(error)[:250]}, None
     try:
         proc = _scrape(url, ['--format', 'jsonfeed'])
     except subprocess.TimeoutExpired:
