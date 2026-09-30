@@ -19,6 +19,7 @@ import sys
 import time
 import urllib.request
 import urllib.robotparser
+from urllib.parse import urlsplit, urlencode
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +33,17 @@ SCRAPE_TIMEOUT = 120
 POLITENESS_DELAY = 2  # seconds between sites
 
 
+def source_request(url):
+    """Relay TECH-IL only when configured; never forward credentials or other sites."""
+    relay = os.environ.get('TECH_IL_WORKER_URL', '').strip()
+    if relay and urlsplit(url).netloc == 'tech-il.co.il':
+        parsed = urlsplit(relay)
+        if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment:
+            raise ValueError('TECH_IL_WORKER_URL must be a plain HTTPS endpoint')
+        url = relay.rstrip('/') + '/?' + urlencode({'url': url})
+    return urllib.request.Request(url, headers={'User-Agent': UA})
+
+
 def robots_allows(url):
     """Check robots.txt for the page URL. Unreachable robots.txt means allowed."""
     from urllib.parse import urlparse
@@ -39,7 +51,7 @@ def robots_allows(url):
     robots_url = f'{p.scheme}://{p.netloc}/robots.txt'
     rp = urllib.robotparser.RobotFileParser()
     try:
-        req = urllib.request.Request(robots_url, headers={'User-Agent': UA})
+        req = source_request(robots_url)
         with urllib.request.urlopen(req, timeout=15) as r:
             rp.parse(r.read().decode('utf-8', 'ignore').splitlines())
     except Exception:
@@ -82,7 +94,7 @@ def generate_site(site, feed_url=None):
             allowed, reason = robots_allows(api)
             if not allowed:
                 return {'status': 'skipped', 'reason': reason}, None
-            request = urllib.request.Request(api, headers={'User-Agent': UA})
+            request = source_request(api)
             with urllib.request.urlopen(request, timeout=30) as response:
                 posts = json.load(response)
             cleaned, count = posts_to_rss(posts, site, feed_url)
