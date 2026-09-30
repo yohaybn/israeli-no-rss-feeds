@@ -1,0 +1,43 @@
+name: Deploy TECH-IL relay
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: deploy-tech-il-relay
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test narrow relay
+        run: node --test worker/index.test.mjs
+      - name: Deploy to Cloudflare Free Workers
+        id: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: python3 scripts/deploy_worker.py
+      - name: Verify relay can generate TECH-IL feed from Actions
+        env:
+          TECH_IL_WORKER_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          sys.path.insert(0, 'scripts')
+          from generate_feeds import generate_site
+          site = next(s for s in json.load(open('sites.json'))['sites'] if s['slug'] == 'tech-il')
+          result, feed = generate_site(site)
+          if result['status'] != 'ok' or not feed:
+              raise SystemExit('Relay smoke test failed: ' + str(result))
+          print('Live relay smoke test passed:', result['items'], 'items')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: worker-url
+          path: worker-url.txt

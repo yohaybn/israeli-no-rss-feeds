@@ -46,6 +46,7 @@ jobs:
       - name: Generate feeds
         env:
           FEEDS_BASE_URL: https://yohaybn.github.io/israeli-no-rss-feeds
+          TECH_IL_WORKER_URL: ${{ vars.TECH_IL_WORKER_URL }}
         run: python3 scripts/generate_feeds.py
 
       - name: Validate generated feeds
