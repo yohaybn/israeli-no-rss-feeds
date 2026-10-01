@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30 23:20 UTC",
+  "generated_at": "2026-10-01 02:15 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -37,8 +37,9 @@
       "url": "https://www.i24news.tv/he",
       "lang": "he",
       "category": "news",
-      "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. app-shell surface detected (client-rendered page with little or no server-render"
+      "status": "ok",
+      "items": 3,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
       "slug": "news1",
@@ -66,7 +67,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 17,
+      "items": 19,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
@@ -86,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
+      "reason": "\tfrom /opt/hostedtoolcache/Ruby/3.3.12/x64/bin/html2rss:25:in `<main>'"
     },
     {
       "slug": "zman",
@@ -142,7 +143,7 @@
       "lang": "he",
       "category": "sports",
       "status": "failed",
-      "reason": "malloc_consolidate(): unaligned fastbin chunk detected"
+      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. high-entropy surface (e.g. news homepage) with few or no durable article destina"
     },
     {
       "slug": "bizportal",
@@ -417,6 +418,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist-buzz.xml"
     }
   ],
-  "ok_count": 27,
+  "ok_count": 28,
   "total": 43
 }
