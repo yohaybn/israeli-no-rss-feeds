@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01 16:35 UTC",
+  "generated_at": "2026-10-01 21:30 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -38,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 4,
+      "items": 2,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -48,7 +48,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 5,
+      "items": 7,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
     },
     {
@@ -67,7 +67,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 25,
+      "items": 21,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/hamal.xml"
     },
     {
@@ -87,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request strategy."
+      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
     },
     {
       "slug": "zman",
