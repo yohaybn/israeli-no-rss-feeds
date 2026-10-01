@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01 09:10 UTC",
+  "generated_at": "2026-10-01 16:35 UTC",
   "base_url": "https://yohaybn.github.io/israeli-no-rss-feeds",
   "sites": [
     {
@@ -38,7 +38,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 5,
+      "items": 4,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/i24.xml"
     },
     {
@@ -48,7 +48,7 @@
       "lang": "he",
       "category": "news",
       "status": "ok",
-      "items": 7,
+      "items": 5,
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/news1.xml"
     },
     {
@@ -87,7 +87,7 @@
       "lang": "he",
       "category": "news",
       "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (HTTP2::Error::ProtocolError error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasau"
+      "reason": "No feed items extracted after auto fallback across strategies: default (0 items), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request strategy."
     },
     {
       "slug": "zman",
@@ -235,8 +235,9 @@
       "url": "https://glz.co.il",
       "lang": "he",
       "category": "radio",
-      "status": "failed",
-      "reason": "No feed items extracted after auto fallback across strategies: default (HTTPX::Error error), botasaurus (Html2rss::RequestService::BotasaurusConfigurationError error). Try a more specific listing URL or provide explicit selectors. Configure BOTASAURUS_SCRAPER_URL to enable the Botasaurus request str"
+      "status": "ok",
+      "items": 25,
+      "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/glz.xml"
     },
     {
       "slug": "fm103",
@@ -418,6 +419,6 @@
       "feed": "https://yohaybn.github.io/israeli-no-rss-feeds/feeds/calcalist-buzz.xml"
     }
   ],
-  "ok_count": 28,
+  "ok_count": 29,
   "total": 43
 }
