@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from wordpress_feed import endpoint as wordpress_endpoint, posts_to_rss
+from article_dates import correct_batch_dates  # noqa: E402
 from feedlib import jsonfeed_to_rss, preserve_item_dates, strip_item_content, validate_feed_bytes  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -61,6 +62,15 @@ def robots_allows(url):
             return False, f'robots.txt disallows {url} for agent {agent!r}'
     return True, 'robots.txt allows'
 
+
+
+def fetch_article(url):
+    """Article page text for date lookup; None when robots.txt disallows or the fetch fails."""
+    allowed, _ = robots_allows(url)
+    if not allowed:
+        return None
+    with urllib.request.urlopen(source_request(url), timeout=20) as response:
+        return response.read(2_000_000).decode('utf-8', 'ignore')
 
 
 def extract_xml(payload):
@@ -228,6 +238,11 @@ def prune_unconfigured_calcalist(feeds_dir, sites):
     return removed
 
 
+def is_scraped(site):
+    """Feeds built from html2rss scans, the only ones that can carry scan-time dates."""
+    return not site.get('generator') and not site.get('wordpress_api')
+
+
 def main():
     with open(os.path.join(ROOT, 'sites.json'), encoding='utf-8') as f:
         sites = json.load(f)['sites']
@@ -252,6 +267,10 @@ def main():
             if os.path.isfile(feed_path):
                 with open(feed_path, 'rb') as previous:
                     xml_bytes = preserve_item_dates(xml_bytes, previous.read())
+            if is_scraped(site):
+                xml_bytes, corrected = correct_batch_dates(xml_bytes, fetch_article)
+                if corrected:
+                    print(f'   corrected {corrected} scan-time dates from article pages', flush=True)
             with open(feed_path, 'wb') as f:
                 f.write(xml_bytes)
             entry['feed'] = f'{base_url}/feeds/{site["slug"]}.xml'
